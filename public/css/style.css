@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ************variables*************** */
+:root{
+    --gris-clair : #E7E7E7;
+    --bleue : #3282F7;
+    --vert-clair : #68D9A4;
+    --rouge : #ED6454;
+    --blanc : #fff;
+}
+
+/* *************General*************** */
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+/* ************header************ */
+.logo {
+    height: 93px;
+    margin-top: 42px;
+}
+
+/* **********Formulaires*********** */
+/* Search */
+.search-bar > input {
+    height: 70px;
+    background-color: var(--gris-clair);
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+.search-bar > button {
+    height: 70px;
+    width: 70px;
+    right: 0;
+    font-size: 32px;
+    border: none;
+    outline: none;
+    background-color: var(--gris-clair);
+    border-radius: 8px;
+}
+
+/* DropDown */
+.dropdown-menu {
+    height: 69px;
+    width: 170px;
+}
+
+.dropdown-menu > a {
+    height: 100%;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-down > input,textarea{
+    background-color: transparent;
+    border: none;
+    color: var(--blanc);
+    font-size: 1.25em;
+}
+
+.search-down > *{
+    cursor: pointer;
+}
+
+.search-down > input::placeholder {
+    color: var(--blanc);
+}
+
+.search-down > input:focus, textarea:focus {
+    background-color: transparent;
+    color: var(--blanc);
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.bg-ingredient{
+    background-color: var(--bleue);
+}
+
+.bg-apapreil{
+    background-color: var(--vert-clair);
+}
+
+.bg-ustensil{
+    background-color: var(--rouge);
+}
+
+/* *********CARDS*********** */
+.card {
+    background-color: var(--gris-clair);
+    width: 380px;
+    height: 364px;
+}
+
+.card-img-top {
+    height: 178px;
+    object-fit: cover;
+}
+
+.card-detail {
+    height: 108px;
+}
+
+.card h2 {
+    font-size: 1.125em;
+}
+
+.list-group-item {
+    background-color: var(--gris-clair);
+}
+
+.list-group-item span {
+    font-weight: 700;
+}
+
+.list-group-item,
+.card-desc {
+    font-size: 0.75em;
+}
+
+.timer {
+    font-weight: 700;
+}
+
+.card-desc {
+    overflow: auto;
+}
