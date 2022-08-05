@@ -11,6 +11,8 @@
     --vert-clair : #68D9A4;
     --rouge : #ED6454;
     --blanc : #fff;
+    --font-size-1 : 1.25em;
+    --font-size-2 : 0.75em;
 }
 
 /* *************General*************** */
@@ -72,7 +74,7 @@ body {
     background-color: transparent;
     border: none;
     color: var(--blanc);
-    font-size: 1.25em;
+    font-size: var(--font-size-1);
 }
 
 .search-down > *{
@@ -95,7 +97,7 @@ body {
     background-color: var(--bleue);
 }
 
-.bg-apapreil{
+.bg-appliance{
     background-color: var(--vert-clair);
 }
 
@@ -120,7 +122,7 @@ body {
 }
 
 .card h2 {
-    font-size: 1.125em;
+    font-size: var(--font-size-1);
 }
 
 .list-group-item {
@@ -133,13 +135,13 @@ body {
 
 .list-group-item,
 .card-desc {
-    font-size: 0.75em;
+    font-size: var(--font-size-2);
 }
 
 .timer {
     font-weight: 700;
 }
 
-.card-desc {
+.card-desc, .list-ingredients {
     overflow: auto;
 }
