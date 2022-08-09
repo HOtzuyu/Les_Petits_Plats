@@ -29,7 +29,7 @@ class RecetteCard {
                 <p class="timer"><img src="/public/assets/pictos/timer.png" alt=""> ${this.time} min</p>
             </div>
             <div class="d-flex gap-1  px-3 card-detail">
-                <ul class="w-50 list-group list-ingredients">${this.ingredients
+                <ul class="w-50 list-ingredients">${this.ingredients
                     .map(
                       (element) =>
                         `

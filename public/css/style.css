@@ -5,14 +5,14 @@
 }
 
 /* ************variables*************** */
-:root{
-    --gris-clair : #E7E7E7;
-    --bleue : #3282F7;
-    --vert-clair : #68D9A4;
-    --rouge : #ED6454;
-    --blanc : #fff;
-    --font-size-1 : 1.25em;
-    --font-size-2 : 0.75em;
+:root {
+    --gris-clair: #E7E7E7;
+    --bleue: #3282F7;
+    --vert-clair: #68D9A4;
+    --rouge: #ED6454;
+    --blanc: #fff;
+    --font-size-1: 1.25em;
+    --font-size-2: 0.75em;
 }
 
 /* *************General*************** */
@@ -32,7 +32,7 @@ body {
 
 /* **********Formulaires*********** */
 /* Search */
-.search-bar > input {
+.search-bar>input {
     height: 70px;
     background-color: var(--gris-clair);
     border: none;
@@ -42,7 +42,7 @@ body {
     font-size: 18px;
 }
 
-.search-bar > button {
+.search-bar>button {
     height: 70px;
     width: 70px;
     right: 0;
@@ -54,12 +54,40 @@ body {
 }
 
 /* DropDown */
+
+.formulaire {
+    position: relative;
+    height: 25vh;
+}
+
+.filters {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.chevron.active>img {
+    rotate: 180deg;
+}
+
+.hide {
+    border: 0;
+    clip: rect(0 0 0 0);
+
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
 .dropdown-menu {
     height: 69px;
     width: 170px;
 }
 
-.dropdown-menu > a {
+.dropdown-menu>a {
     height: 100%;
     width: 100%;
     font-size: 18px;
@@ -70,22 +98,24 @@ body {
     align-items: center;
 }
 
-.search-down > input,textarea{
+.search-down>input,
+textarea {
     background-color: transparent;
     border: none;
     color: var(--blanc);
     font-size: var(--font-size-1);
 }
 
-.search-down > *{
+.search-down>* {
     cursor: pointer;
 }
 
-.search-down > input::placeholder {
+.search-down>input::placeholder {
     color: var(--blanc);
 }
 
-.search-down > input:focus, textarea:focus {
+.search-down>input:focus,
+textarea:focus {
     background-color: transparent;
     color: var(--blanc);
     border: none;
@@ -93,16 +123,48 @@ body {
     box-shadow: none;
 }
 
-.bg-ingredient{
+.bg-ingredient {
     background-color: var(--bleue);
 }
 
-.bg-appliance{
+.bg-appliance {
     background-color: var(--vert-clair);
 }
 
-.bg-ustensil{
+.bg-ustensil {
     background-color: var(--rouge);
+}
+
+.list-group {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 7px;
+    position: absolute;
+    width: 100%;
+}
+
+.dropdown {
+    border-radius: 5px;
+}
+
+.dropdown.active {
+    border-radius: 5px 5px 0 0;
+}
+
+.list-group.active {
+    border-radius: 0 0 5px 5px;
+}
+
+.tag>* {
+    padding: 10px 25px;
+    color: white;
+    border-radius : 5px;
+    border: none;
+    margin-right: 10px;
+}
+
+.tag_space > img{
+    margin-left: 5px;
 }
 
 /* *********CARDS*********** */
@@ -138,10 +200,15 @@ body {
     font-size: var(--font-size-2);
 }
 
+.list-ingredients {
+    padding-left: 0;
+}
+
 .timer {
     font-weight: 700;
 }
 
-.card-desc, .list-ingredients {
+.card-desc,
+.list-ingredients {
     overflow: auto;
 }

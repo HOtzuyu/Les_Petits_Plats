@@ -11,7 +11,7 @@
 
     <!-- **************FAVICON************** -->
     <link rel="icon" type="image/png" href="public/assets/favicon/logo.png" />
-    
+
     <!-- **********IMPORTS****************** -->
     <!-- google font Lato -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,8 +36,8 @@
 
     <main>
         <!-- barre de recherche -->
-        <form class="" role="search">
-            <div class="search-bar d-flex mb-5 w-100 position-relative mt-5">
+        <form class="formulaire" role="search">
+            <div class="search-bar d-flex mb-4 w-100 position-relative mt-5">
                 <input id="searchinput" class="w-100" type="search"
                     placeholder="Rechercher un ingrédient, un appareil, un ustensil ou une recette" aria-label="Search">
                 <button type="submit" class="position-absolute"><img src="/public/assets/pictos/search.png"
@@ -45,69 +45,76 @@
             </div>
 
             <!-- affichage des filtres actifs -->
-            <div class="filtres-actifs mb-5">
+            <div class="filtres-actifs mb-3 tag">
             </div>
 
             <!-- 3 dropdown de filtres -->
-            <div class="d-flex zone-filtres mb-5">
+            <div class="d-flex zone-filtres mb-5 filters">
 
                 <!-- Ingredients -->
-                <div class="dropdown me-4">
+                <div class="dropdown me-4 bg-ingredient shadow-sm" id="ingredients">
                     <div
-                        class="search-down rounded bg-ingredient shadow-sm d-flex justify-content-center align-items-center px-2 py-3">
+                        class="search-down d-flex justify-content-center align-items-center px-2 py-3">
                         <input class=" form-control" type="text" placeholder="Ingrédients" value=""
                             id="ingredients-filter" data-target="ingredient-filter">
                         <div class="ingredientChevron chevron" style="transform: none;">
-                            <img src="/public/assets/pictos/chevron.svg" alt="">
+                            <img class="dropdownIcon" src="/public/assets/pictos/chevron.svg" alt="">
                         </div>
                     </div>
                     <ul id="ingredientsList" data-target="ingredients"
-                    class="list-group row flex-wrap m-0 p-1 pt-0 list-unstyled fs-6"
-                    aria-labelledby="dropdownMenuLink">
+                        class="list-group bg-ingredient row flex-wrap m-0 p-1 pt-0 list-unstyled fs-6 hide"
+                        aria-labelledby="dropdownMenuLink">
                         <!-- liste d'ingrédients -->
                     </ul>
                 </div>
 
+
+
                 <!-- Appareils / appliances -->
-                <div class="dropdown me-4">
+                <div class="dropdown me-4 bg-appliance shadow-sm" id="appliances">
                     <div
-                        class="search-down rounded bg-appliance shadow-sm d-flex justify-content-center align-items-center px-2 py-3">
-                        <input class=" form-control" type="text" placeholder="Appareils" value="" id="ingredients-filter"
-                            data-target="appliancest-filter">
+                        class="search-down d-flex justify-content-center align-items-center px-2 py-3">
+                        <input class=" form-control" type="text" placeholder="Appareils" value=""
+                            id="appliances-filter" data-target="appliancest-filter">
                         <div class="appliancesChevron chevron" style="transform: none;">
-                            <img src="/public/assets/pictos/chevron.svg" alt="">
+                            <img class="dropdownIcon" src="/public/assets/pictos/chevron.svg" alt="">
                         </div>
                     </div>
                     <ul id="appliancesList" data-target="appliances"
-                        class="list-group row flex-wrap m-0 p-1 pt-0 list-unstyled fs-6"
+                        class="list-group bg-appliance row flex-wrap m-0 p-1 pt-0 list-unstyled fs-6  hide"
                         aria-labelledby="dropdownMenuLink">
                         <!-- liste d'appareils -->
                     </ul>
                 </div>
 
+
+
                 <!-- Ustensils -->
-                <div class="dropdown me-4">
+                <div class="dropdown me-4 bg-ustensil shadow-sm " id="ustensils">
                     <div
-                        class="search-down rounded bg-ustensil shadow-sm d-flex justify-content-center align-items-center px-2 py-3">
-                        <input class=" form-control" type="text" placeholder="Ustensils" value="" id="ingredients-filter"
-                            data-target="ingredient-filter">
+                        class="search-down d-flex justify-content-center align-items-center px-2 py-3">
+                        <input class=" form-control" type="text" placeholder="Ustensils" value=""
+                            id="ustensils-filter" data-target="ingredient-filter">
                         <div class="ustensilChevron chevron" style="transform: none;">
-                            <img src="/public/assets/pictos/chevron.svg" alt="">
+                            <img class="dropdownIcon" src="/public/assets/pictos/chevron.svg" alt="">
                         </div>
                     </div>
                     <ul id="ustensilsList" data-target="ustensils"
-                    class="list-group row flex-wrap m-0 p-1 pt-0 list-unstyled fs-6"
-                    aria-labelledby="dropdownMenuLink">
+                        class="list-group bg-ustensil row flex-wrap m-0 p-1 pt-0 list-unstyled fs-6 hide"
+                        aria-labelledby="dropdownMenuLink">
                         <!-- liste d'ustensils -->
                     </ul>
                 </div>
+
+
 
             </div>
         </form>
 
 
         <!-- articles recettes -->
-        <div class="mb-5 d-flex flex-wrap justify-content-between align-items-center flex-wrap" id="wrapper-recettes">
+        <div class="mb-5  d-flex flex-wrap justify-content-between align-items-center flex-wrap" id="wrapper-recettes">
+            <!-- Cards recettes -->
         </div>
     </main>
 
@@ -117,6 +124,8 @@
         <!-- filtres -->
         <script src="/public/scripts/fonctions/CreateLists.js"></script>
         <!-- fact fiches recettes -->
+        <script src="/public/scripts/fonctions/tag.js"></script>
+        <script src="/public/scripts/fonctions/filter.js"></script>
         <script src="/public/scripts/fonctions/RecetteCards-fact.js"></script>
         <!-- constructeur fiches recettes -->
         <script src="/public/scripts/constructor/cardRecette.js"></script>
