@@ -11,23 +11,45 @@ class Filter {
     }
     filterEvent() {
         const input = this.DOMfilter.querySelector("input");
+        const dropDowns = document.querySelectorAll(".dropdown");
         const placeholder = input.placeholder;
         const filter = this.DOMfilter;
 
-        this.DOMfilter.addEventListener("click", (e) => {
-            e.stopPropagation();            
-            if(filter.querySelector("input").placeholder != `Recherchez un ${placeholder}`){
-                filter.querySelector("input").placeholder = `Recherchez un ${placeholder}`;
-            }else{
-                filter.querySelector("input").placeholder = `${placeholder}`;
-            };            
-            filter.classList.toggle("flex-grow-1");
-            filter.querySelector("ul").classList.toggle("hide");
-            filter.querySelector("ul").classList.toggle("active");
-            filter.querySelector(".chevron").classList.toggle("active");
-            filter.classList.toggle("active");
-            console.log(filter);   
-        });
+        dropDowns.forEach(dropDown => {
+            dropDown.addEventListener('click', () => { 
+              const activeElements = Array.from(document.querySelectorAll('.list-group.active'));
+              activeElements.forEach(activeElement => {
+                activeElement.classList.remove('active');
+                activeElement.parentElement.classList.add('hide');
+              });
+              dropDown.parentElement.classList.add('active');
+              dropDown.classList.remove('hide');
+            });
+          });
+
+
+        // this.DOMfilter.addEventListener("click", (e) => {
+        //     e.stopPropagation();
+        //         if (filter.querySelector("input").placeholder != `Recherchez un ${placeholder}`) {
+        //             filter.querySelector("input").placeholder = `Recherchez un ${placeholder}`;
+        //             filter.classList.add("flex-grow-1");
+        //             filter.querySelector("ul").classList.remove("hide");
+        //             filter.querySelector("ul").classList.add("active");
+        //             filter.querySelector(".chevron").classList.add("active");
+        //             //filter.classList.add("active");
+        //             console.log(filter.classList);
+        //         } else {
+        //             filter.querySelector("input").placeholder = `${placeholder}`;
+        //             filter.classList.remove("flex-grow-1");
+        //             filter.querySelector("ul").classList.add("hide");
+        //             filter.querySelector("ul").classList.remove("active");
+        //             filter.querySelector(".chevron").classList.remove("active");
+        //             //filter.classList.remove("active");
+        //             console.log(filter.classList);
+        //         };
+            
+
+        // });
     }
 }
 
@@ -39,7 +61,7 @@ class List {
         this.displayFiltersList(this.filters);
         const input = this.DOMfilter.querySelector("input");
         input.oninput = this.manageSearchList.bind(this);
-        
+
     }
     manageSearchList(e) {
         if (e.target.value.length > 2) {
@@ -63,8 +85,8 @@ class List {
         filters.forEach(element => {
             const li = document.createElement("li");
             li.innerText = element;
-            listContainer.appendChild(li);            
-            li.addEventListener("click", () => {                
+            listContainer.appendChild(li);
+            li.addEventListener("click", () => {
                 new Tag(li.innerText, this.elemColor, this.DOMfilter.id);
             })
         });
