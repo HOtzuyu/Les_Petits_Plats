@@ -23,26 +23,40 @@ const listOfAppliances = document.querySelector("#applianceList");
 
 
 class App {
-    static init () {
-        new App (recipes);
+    static init() {
+        new App(recipes);
     }
-    constructor (recipes) {
-        this.recipes = recipes;        
+    constructor(recipes) {
+        this.recipes = recipes;
         this.launchRecipes();
         this.launchFilters();
     }
 
-    launchFilters () {
-        const filtersList = new getFilters (this.recipes);
+    launchFilters() {
+        const filtersList = new getFilters(this.recipes);
         const ingredients = filtersList.getIngredients();
         const appliances = filtersList.getAppliances();
         const ustensils = filtersList.getUstensils();
         new Filter(ingredients, document.querySelector("#ingredients"), "bg-ingredient");
-        new Filter(appliances, document.querySelector("#appliances"), "bg-appliance" );
-        new Filter(ustensils, document.querySelector("#ustensils"), "bg-ustensil"); 
-    }    
-    
-    launchRecipes () {
+        new Filter(appliances, document.querySelector("#appliances"), "bg-appliance");
+        new Filter(ustensils, document.querySelector("#ustensils"), "bg-ustensil");
+
+        // document.querySelector("#ingredients").addEventListener('click', () => {
+        //     new Filter(ingredients, document.querySelector("#ingredients"), "bg-ingredient");
+        // })
+
+        // document.querySelector("#appliances").addEventListener('click', () => {
+        //     new Filter(appliances, document.querySelector("#appliances"), "bg-ingredient");
+
+        // })
+
+        // document.querySelector("#ustensils").addEventListener('click', () => {
+        //     new Filter(ustensils, document.querySelector("#ustensils"), "bg-ingredient");
+
+        // })
+    }
+
+    launchRecipes() {
         new Recipes(this.recipes);
     }
 }

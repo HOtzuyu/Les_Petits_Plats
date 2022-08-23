@@ -11,45 +11,54 @@ class Filter {
     }
     filterEvent() {
         const input = this.DOMfilter.querySelector("input");
-        const dropDowns = document.querySelectorAll(".dropdown");
         const placeholder = input.placeholder;
-        const filter = this.DOMfilter;
+        const dropDowns = document.querySelectorAll(".dropdown");
+
+       // console.log(placeholder);
 
         dropDowns.forEach(dropDown => {
-            dropDown.addEventListener('click', () => { 
-              const activeElements = Array.from(document.querySelectorAll('.list-group.active'));
-              activeElements.forEach(activeElement => {
-                activeElement.classList.remove('active');
-                activeElement.parentElement.classList.add('hide');
-              });
-              dropDown.parentElement.classList.add('active');
-              dropDown.classList.remove('hide');
+            dropDown.addEventListener('click', (e) => {
+                const activeElements = Array.from(document.querySelectorAll('.dropdown.active'));
+                e.stopPropagation();
+                activeElements.forEach(activeElement => {
+                    activeElement.classList.remove('active');
+                    activeElement.classList.remove("flex-grow-1");
+                    activeElement.querySelector(".chevron").classList.remove("active");
+                    activeElement.querySelector("ul").classList.add("hide");
+                    activeElement.querySelector("ul").classList.remove("active");
+                    activeElement.querySelector("input").placeholder = placeholder;
+                    
+                    //console.log(placeholder);
+                });
+                dropDown.classList.add("flex-grow-1");
+                dropDown.classList.add('active');
+                dropDown.querySelector(".chevron").classList.add("active");
+                dropDown.querySelector("ul").classList.remove("hide");
+                dropDown.querySelector("ul").classList.add("active");
+                if (dropDown.classList.contains("active")) {
+                    let result = "recherchez un " + e.target.value
+
+                    console.log(e.target.value);
+
+                    //console.log("if " + dropDown.querySelector('input'));
+                    dropDown.querySelector("input").value = result;
+                //     dropDown.addEventListener('click', () => {
+                //         dropDown.classList.remove("flex-grow-1");
+                //         dropDown.querySelector(".chevron").classList.remove("active");
+                //         dropDown.querySelector("input").placeholder = placeholder;
+                //         dropDown.querySelector("ul").classList.add("hide");
+                //         dropDown.querySelector("ul").classList.remove("active");
+                //     })
+                    //console.log("if " + placeholder);
+                }
+                
+                // console.log(placeholder);
+
+                // console.log(this.DOMfilter);
+                
             });
-          });
-
-
-        // this.DOMfilter.addEventListener("click", (e) => {
-        //     e.stopPropagation();
-        //         if (filter.querySelector("input").placeholder != `Recherchez un ${placeholder}`) {
-        //             filter.querySelector("input").placeholder = `Recherchez un ${placeholder}`;
-        //             filter.classList.add("flex-grow-1");
-        //             filter.querySelector("ul").classList.remove("hide");
-        //             filter.querySelector("ul").classList.add("active");
-        //             filter.querySelector(".chevron").classList.add("active");
-        //             //filter.classList.add("active");
-        //             console.log(filter.classList);
-        //         } else {
-        //             filter.querySelector("input").placeholder = `${placeholder}`;
-        //             filter.classList.remove("flex-grow-1");
-        //             filter.querySelector("ul").classList.add("hide");
-        //             filter.querySelector("ul").classList.remove("active");
-        //             filter.querySelector(".chevron").classList.remove("active");
-        //             //filter.classList.remove("active");
-        //             console.log(filter.classList);
-        //         };
             
-
-        // });
+        });
     }
 }
 
@@ -68,7 +77,6 @@ class List {
             const inputData = e.target.value.toLowerCase();
             const newTabFilters = []
             this.filters.forEach(element => {
-                //looking for a match
                 const findIt = element.toLowerCase().includes(inputData);
                 if (findIt == true) {
                     newTabFilters.push(element);
