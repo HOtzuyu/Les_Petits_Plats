@@ -36,12 +36,12 @@ class Filter {
                 dropDown.querySelector("ul").classList.remove("hide");
                 dropDown.querySelector("ul").classList.add("active");
                 if (dropDown.classList.contains("active")) {
-                    let result = "recherchez un " + e.target.value
+                    let result = "recherchez un " + e.target.value;
 
-                    console.log(e.target.value);
+                    console.log(e);
 
                     //console.log("if " + dropDown.querySelector('input'));
-                    dropDown.querySelector("input").value = result;
+                    dropDown.querySelector("input").placeholder = result;
                 //     dropDown.addEventListener('click', () => {
                 //         dropDown.classList.remove("flex-grow-1");
                 //         dropDown.querySelector(".chevron").classList.remove("active");

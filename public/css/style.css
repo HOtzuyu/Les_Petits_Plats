@@ -112,6 +112,7 @@ textarea {
 
 .search-down>input::placeholder {
     color: var(--blanc);
+    opacity: 0.5;
 }
 
 .search-down>input:focus,
@@ -135,6 +136,7 @@ textarea:focus {
     background-color: var(--rouge);
 }
 
+/* list elements */
 .list-group {
     display: grid;
     grid-template-columns: repeat(3, auto);
@@ -142,6 +144,15 @@ textarea:focus {
     position: absolute;
     width: 100%;
 }
+.list-group li{
+    color: var(--blanc);
+    font-weight: 400;
+    font-size: 1.125em;
+}
+.list-group li:hover{
+    cursor: pointer;
+}
+
 
 .dropdown {
     border-radius: 5px;
