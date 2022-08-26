@@ -42,24 +42,23 @@ class Filter {
 
                     //console.log("if " + dropDown.querySelector('input'));
                     dropDown.querySelector("input").placeholder = result;
-                //     dropDown.addEventListener('click', () => {
-                //         dropDown.classList.remove("flex-grow-1");
-                //         dropDown.querySelector(".chevron").classList.remove("active");
-                //         dropDown.querySelector("input").placeholder = placeholder;
-                //         dropDown.querySelector("ul").classList.add("hide");
-                //         dropDown.querySelector("ul").classList.remove("active");
-                //     })
+                    dropDown.addEventListener('click', () => {
+                        dropDown.classList.remove("flex-grow-1");
+                        dropDown.querySelector(".chevron").classList.remove("active");
+                        dropDown.querySelector("input").placeholder = placeholder;
+                        dropDown.querySelector("ul").classList.add("hide");
+                        dropDown.querySelector("ul").classList.remove("active");
+                    })
                     //console.log("if " + placeholder);
-                }
-                
+                }                
                 // console.log(placeholder);
-
                 // console.log(this.DOMfilter);
                 
             });
             
         });
     }
+
 }
 
 class List {
