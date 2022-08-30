@@ -225,3 +225,11 @@ textarea:focus {
 .list-ingredients {
     overflow: auto;
 }
+
+/* Error message */
+.result-section p{
+    font-size: 2em;
+    text-align: center;
+    color: var(--rouge);
+    font-weight: 800;
+}

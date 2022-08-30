@@ -28,8 +28,13 @@ class App {
     }
     constructor(recipes) {
         this.recipes = recipes;
+        this.launchSearchBar();
         this.launchRecipes();
         this.launchFilters();
+    }
+
+    launchSearchBar () {
+        new Searchbar();
     }
 
     launchFilters() {
