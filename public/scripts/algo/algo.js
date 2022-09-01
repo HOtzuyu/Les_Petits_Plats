@@ -28,6 +28,9 @@ export function searchBarAlgo () {
         searchedRecipes = recipes;
         new Recipes (recipes);
         newFiltersList (recipes);
+        document.querySelector("#wrapper-recettes").classList.remove('hide');
+        document.querySelector(".result-section ").classList.add('hide');
+        document.querySelector(".filtres-actifs").innerHTML="";
     }
     else {
         searchedRecipes = recipes;
