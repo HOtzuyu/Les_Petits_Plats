@@ -1,7 +1,7 @@
 let currentTabRecipes = filteredRecipes = searchedRecipes = recipes;
 const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
 
-export function searchBarAlgo () {
+function searchBarAlgo () {
     const inputData = document.querySelector("#search").value.toLowerCase();
     if (inputData.length > 2) {
         let result = [];
@@ -18,8 +18,10 @@ export function searchBarAlgo () {
         }
         else {
             const resultSection = document.querySelector(".result-section");
-            resultSection.innerHTML = `<div class="result-section__empty">Aucune recette ne correspond à votre critère… vous pouvez
-            chercher « tarte aux pommes », « poisson », etc...</div>`;
+            document.querySelector("#wrapper-recettes").classList.add('hide');
+            document.querySelector(".result-section ").classList.remove('hide');
+            resultSection.innerHTML = `<p>Aucune recette ne correspond à votre critère… vous pouvez
+            chercher « tarte aux pommes », « poisson », etc...</p>`;
         }
         currentTabRecipes = searchedRecipes;
     }
@@ -52,7 +54,7 @@ function inputMatch (inputData, element) {
 }
 
 
-export function filtersAlgo () {
+function filtersAlgo () {
     if (filtersDatas.length != 0) {
         for (const filterData of filtersDatas) {
             filterMatch(filterData);
