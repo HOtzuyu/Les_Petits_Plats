@@ -2,7 +2,7 @@ let currentTabRecipes = filteredRecipes = searchedRecipes = recipes;
 const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
 
 function searchBarAlgo () {
-    const inputData = document.querySelector("#search").value.toLowerCase();
+    const inputData = document.querySelector("#searchinput").value.toLowerCase();
     if (inputData.length > 2) {
         let result = [];
         for (const element of filteredRecipes) {
