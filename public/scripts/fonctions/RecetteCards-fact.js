@@ -23,7 +23,7 @@ class RecetteCard {
             "mb-4"
         );
         card.innerHTML = `
-            <img src="/public/assets/image/${photo}.jpg" alt="${this.name}" class="card-img-top mb-2">
+            <img src="public/assets/image/${photo}.jpg" alt="${this.name}" class="card-img-top mb-2">
             <div class="d-flex justify-content-between align-items-center gap-1 w-100 px-3">
                 <h2>${this.name}</h2>
                 <p class="timer"><img src="/public/assets/pictos/timer.png" alt=""> ${this.time} min</p>
