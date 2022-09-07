@@ -3,7 +3,7 @@ class Searchbar {
         this.input = document.querySelector("#searchinput");
         this.listenInput()
     }
-    listenInput () {
+    listenInput() {
         this.input.addEventListener("input", searchBarAlgo);
     }
 }
