@@ -224,4 +224,6 @@ textarea:focus {
 .card-desc,
 .list-ingredients {
     overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--bleue) var(--gris-clair);  
 }
