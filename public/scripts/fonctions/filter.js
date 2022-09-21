@@ -1,3 +1,5 @@
+
+
 class Filter {
     constructor(filters, DOMfilter, elemColor) {
         this.filters = filters;
@@ -10,54 +12,105 @@ class Filter {
         new List(this.DOMfilter, filters, this.elemColor);
     }
     filterEvent() {
-        const input = this.DOMfilter.querySelector("input");
-        const placeholder = input.placeholder;
-        const dropDowns = document.querySelectorAll(".dropdown");
+            const input = this.DOMfilter.querySelector("input");
+            const placeholder = input.placeholder;
+            const dropDowns = document.querySelectorAll(".dropdown");
 
-       // console.log(placeholder);
+           // console.log(placeholder);
 
-        dropDowns.forEach(dropDown => {
-            dropDown.addEventListener('click', (e) => {
-                const activeElements = Array.from(document.querySelectorAll('.dropdown.active'));
-                e.stopPropagation();
-                activeElements.forEach(activeElement => {
-                    activeElement.classList.remove('active');
-                    activeElement.classList.remove("flex-grow-1");
-                    activeElement.querySelector(".chevron").classList.remove("active");
-                    activeElement.querySelector("ul").classList.add("hide");
-                    activeElement.querySelector("ul").classList.remove("active");
-                    activeElement.querySelector("input").placeholder = placeholder;
-                    
-                    //console.log(placeholder);
+            dropDowns.forEach(dropDown => {
+                dropDown.addEventListener('click', (e) => {
+                    const activeElements = Array.from(document.querySelectorAll('.dropdown.active'));
+                    e.stopPropagation();
+                    activeElements.forEach(activeElement => {
+                        activeElement.classList.remove('active');
+                        activeElement.classList.remove("flex-grow-1");
+                        activeElement.querySelector(".chevron").classList.remove("active");
+                        activeElement.querySelector("ul").classList.add("hide");
+                        activeElement.querySelector("ul").classList.remove("active");
+                        activeElement.querySelector("input").placeholder = placeholder;
+
+                        //console.log(placeholder);
+                    });
+                    dropDown.classList.add("flex-grow-1");
+                    dropDown.classList.add('active');
+                    dropDown.querySelector(".chevron").classList.add("active");
+                    dropDown.querySelector("ul").classList.remove("hide");
+                    dropDown.querySelector("ul").classList.add("active");
+                    if (dropDown.classList.contains("active")) {
+                        let result = "recherchez un " + e.target.value;
+
+                        //console.log(e);
+
+                        //console.log("if " + dropDown.querySelector('input'));
+                        dropDown.querySelector("input").placeholder = result;
+                        dropDown.addEventListener('click', () => {
+                            dropDown.classList.remove("flex-grow-1");
+                            dropDown.querySelector(".chevron").classList.remove("active");
+                            dropDown.querySelector("input").placeholder = placeholder;
+                            dropDown.querySelector("ul").classList.add("hide");
+                            dropDown.querySelector("ul").classList.remove("active");
+                        })
+                        //console.log("if " + placeholder);
+                    }                
+                    // console.log(placeholder);
+                    // console.log(this.DOMfilter);
+
                 });
-                dropDown.classList.add("flex-grow-1");
-                dropDown.classList.add('active');
-                dropDown.querySelector(".chevron").classList.add("active");
-                dropDown.querySelector("ul").classList.remove("hide");
-                dropDown.querySelector("ul").classList.add("active");
-                if (dropDown.classList.contains("active")) {
-                    let result = "recherchez un " + e.target.value;
 
-                    console.log(e);
-
-                    //console.log("if " + dropDown.querySelector('input'));
-                    dropDown.querySelector("input").placeholder = result;
-                    dropDown.addEventListener('click', () => {
-                        dropDown.classList.remove("flex-grow-1");
-                        dropDown.querySelector(".chevron").classList.remove("active");
-                        dropDown.querySelector("input").placeholder = placeholder;
-                        dropDown.querySelector("ul").classList.add("hide");
-                        dropDown.querySelector("ul").classList.remove("active");
-                    })
-                    //console.log("if " + placeholder);
-                }                
-                // console.log(placeholder);
-                // console.log(this.DOMfilter);
-                
             });
-            
-        });
-    }
+        }
+
+    //     let open = false;
+    //     const input = this.DOMfilter.querySelector("input");
+    //     const placeholder = input.placeholder;
+    //     const filter = this.DOMfilter;
+    //     let othersFilters = Array.from(document.querySelectorAll(".filters__element"));
+    //     othersFilters = othersFilters.filter((elem) => {
+    //         return elem !== filter
+    //     });
+    //     const dropDownIcon = this.DOMfilter.querySelector("img");
+
+    //     this.DOMfilter.addEventListener("click", (e) => {
+    //         e.stopPropagation();
+    //         othersFilters.forEach(element => {
+    //             element.style.pointerEvents = "none";
+    //         });
+    //         // Open sort list
+    //         if (open == false) {
+    //             const placeholderMin = placeholder.toLowerCase();
+    //             filter.querySelector("ul").classList.remove("filters__element__list--hide");
+    //             input.classList.add("filters__element__button__input--after");
+    //             input.placeholder = `Rechercher un ${placeholderMin}`;
+    //             input.style.cursor = "text";
+    //             input.focus();
+    //             dropDownIcon.classList.add("dropdownIcon--after");
+    //             open = true;
+    //             document.addEventListener("click", function toggle(e) {
+    //                 if (!filter.contains(e.target)) {
+    //                     remove();
+    //                 }
+    //                 this.removeEventListener("click", toggle);
+    //             });
+    //         }
+    //         // Close sort list
+    //         else if (open == true && dropDownIcon.contains(e.target)) {
+    //             remove();
+    //         }
+    //     });
+
+    //     function remove() {
+    //         filter.querySelector("ul").classList.add("filters__element__list--hide");
+    //         input.classList.remove("filters__element__button__input--after");
+    //         input.placeholder = placeholder;
+    //         input.style.cursor = "pointer";
+    //         dropDownIcon.classList.remove("dropdownIcon--after");
+    //         othersFilters.forEach(element => {
+    //             element.style.pointerEvents = "unset";
+    //         });
+    //         open = false;
+    //     }
+    // }
 
 }
 
@@ -95,6 +148,7 @@ class List {
             listContainer.appendChild(li);
             li.addEventListener("click", () => {
                 new Tag(li.innerText, this.elemColor, this.DOMfilter.id);
+                filtersAlgo();
             })
         });
     }
@@ -116,7 +170,6 @@ class Tag {
     }
     removeTag(e) {
         let element = e.target;
-        console.log(element);
         element.parentNode.removeChild(element);
     }
 }

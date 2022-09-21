@@ -10,7 +10,7 @@
     <title>Les Petits Plats</title>
 
     <!-- **************FAVICON************** -->
-    <link rel="icon" type="image/png" href="public/assets/favicon/logo.png" />
+    <link rel="icon" type="image/x-icon"  href="public/assets/favicon/logo.png" />
 
     <!-- **********IMPORTS****************** -->
     <!-- google font Lato -->
@@ -52,7 +52,7 @@
             <div class="d-flex zone-filtres mb-5 filters">
 
                 <!-- Ingredients -->
-                <div class="dropdown me-4 bg-ingredient shadow-sm" id="ingredients">
+                <div class=" filters__element dropdown me-4 bg-ingredient shadow-sm" id="ingredients">
                     <div class="search-down d-flex justify-content-center align-items-center px-2 py-3">
                         <input class=" form-control" type="text" placeholder="Ingrédients" 
                             id="ingredients-filter" data-target="ingredient-filter">
@@ -70,7 +70,7 @@
 
 
                 <!-- Appareils / appliances -->
-                <div class="dropdown me-4 bg-appliance shadow-sm" id="appliances">
+                <div class=" filters__element dropdown me-4 bg-appliance shadow-sm" id="appliances">
                     <div class="search-down d-flex justify-content-center align-items-center px-2 py-3">
                         <input class=" form-control" type="text" placeholder="Appareils" id="appliances-filter"
                             data-target="appliances-filter">
@@ -88,7 +88,7 @@
 
 
                 <!-- Ustensils -->
-                <div class="dropdown me-4 bg-ustensil shadow-sm " id="ustensils">
+                <div class=" filters__element dropdown me-4 bg-ustensil shadow-sm " id="ustensils">
                     <div class="search-down d-flex justify-content-center align-items-center px-2 py-3">
                         <input class=" form-control" type="text" placeholder="Ustensils" id="ustensils-filter"
                             data-target="ingredient-filter">
@@ -120,11 +120,12 @@
         <!-- data recettes -->
         <script src="public/data/recipes.js"></script>
         <!-- Algo -->
-        <script src="public/scripts/algo/algo.js"></script>
+        
         <!-- filtres -->
         <script src="public/scripts/fonctions/CreateLists.js"></script>
         <!-- fact fiches recettes -->
         <script src="public/scripts/fonctions/tag.js"></script>
+        <script src="public/scripts/algo/algo.js"></script>
         <script src="public/scripts/fonctions/filter.js"></script>
         <script src="public/scripts/fonctions/RecetteCards-fact.js"></script>
         <script src="public/scripts/fonctions/search.js"></script>
