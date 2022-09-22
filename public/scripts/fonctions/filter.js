@@ -7,6 +7,7 @@ class Filter {
         this.elemColor = elemColor;
         this.createFiltersList(this.filters);
         this.filterEvent();
+
     }
     createFiltersList(filters) {
         new List(this.DOMfilter, filters, this.elemColor);
@@ -148,7 +149,7 @@ class List {
             listContainer.appendChild(li);
             li.addEventListener("click", () => {
                 new Tag(li.innerText, this.elemColor, this.DOMfilter.id);
-                filtersAlgo();
+               // filtersAlgo(); /** Appel de la fonction de algo.js */
             })
         });
     }
