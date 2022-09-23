@@ -37,7 +37,10 @@ function searchBarAlgo () {
     else {
         searchedRecipes = recipes;
         currentTabRecipes = recipes;
+        console.log("step 1 :");
+        // const algo = require("./filterAlgo");
         filtersAlgo();
+
     }
 }
 //looking for a match
@@ -55,6 +58,7 @@ function inputMatch (inputData, element) {
 
 
 function filtersAlgo () {
+    console.log("step 2 :");
     if (filtersDatas.length != 0) {
         for (const filterData of filtersDatas) {
             filterMatch(filterData);
@@ -117,9 +121,9 @@ function newFiltersList (recipes) {
     const appliancesDOM = document.querySelector("#appliances");
     const ustensilsDOM = document.querySelector("#ustensils");
 
-    new List (ingredientsDOM, ingredients, "secondary");
-    new List (appliancesDOM, appliances, "tertiary");
-    new List (ustensilsDOM, ustensils, "quaternary");
+    new List (ingredients, document.querySelector("#ingredients"), "bg-ingredient");
+    new List (appliances, document.querySelector("#appliances"), "bg-appliance");
+    new List (ustensils, document.querySelector("#ustensils"), "bg-ustensil");
 }
 
 
@@ -152,3 +156,4 @@ function searchInUstensils (element, data) {
 function searchInDescription (element, data) {
     return element.description.toLowerCase().includes(data)
 }
+
