@@ -121,9 +121,9 @@ function newFiltersList (recipes) {
     const appliancesDOM = document.querySelector("#appliances");
     const ustensilsDOM = document.querySelector("#ustensils");
 
-    new List (ingredients, document.querySelector("#ingredients"), "bg-ingredient");
-    new List (appliances, document.querySelector("#appliances"), "bg-appliance");
-    new List (ustensils, document.querySelector("#ustensils"), "bg-ustensil");
+    new List (ingredientsDOM, ingredients, "bg-ingredient");
+    new List (appliancesDOM, appliances, "bg-appliance");
+    new List (ustensilsDOM, ustensils, "bg-ustensil");
 }
 
 

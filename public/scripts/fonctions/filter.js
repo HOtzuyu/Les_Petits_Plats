@@ -149,7 +149,7 @@ class List {
     displayFiltersList(filters) {
         //import {filtersAlgo} from "../algo/filterAlgo";
         //const algo = require("../algo/filterAlgo");
-        console.log("tag 1");
+        console.log(this.DOMfilter.querySelector("ul"));
         const listContainer = this.DOMfilter.querySelector("ul");
         listContainer.innerHTML = "";
         filters.forEach(element => {
@@ -158,7 +158,8 @@ class List {
             listContainer.appendChild(li);
             li.addEventListener("click", () => {
                 new Tag(li.innerText, this.elemColor, this.DOMfilter.id);
-                //filtersAlgo(); /** Appel de la fonction de algo.js */
+                console.log(li.innerText);
+                filtersAlgo(); /** Appel de la fonction de algo.js */
             })
         });
     }
