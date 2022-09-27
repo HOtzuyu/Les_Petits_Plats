@@ -57,9 +57,10 @@ function inputMatch (inputData, element) {
 }
 
 
-function filtersAlgo () {
+function filtersAlgo() {
     console.log("step 2 :");
     if (filtersDatas.length != 0) {
+        console.log('1');
         for (const filterData of filtersDatas) {
             filterMatch(filterData);
         }
@@ -69,6 +70,7 @@ function filtersAlgo () {
         currentTabRecipes = searchedRecipes;
     }
     else  {
+        console.log('2');
         filteredRecipes = recipes;
         searchBarAlgo();
     }

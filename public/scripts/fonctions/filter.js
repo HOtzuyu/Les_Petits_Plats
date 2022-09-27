@@ -78,7 +78,7 @@ class Filter {
             });
             // Open sort list
             if (open == false) {
-                console.log(filter);
+                //console.log(filter);
                 filter.classList.add("flex-grow-1");
                 filter.classList.add("active");
 
@@ -149,7 +149,7 @@ class List {
     displayFiltersList(filters) {
         //import {filtersAlgo} from "../algo/filterAlgo";
         //const algo = require("../algo/filterAlgo");
-        console.log(this.DOMfilter.querySelector("ul"));
+        //console.log(this.DOMfilter.querySelector("ul"));
         const listContainer = this.DOMfilter.querySelector("ul");
         listContainer.innerHTML = "";
         filters.forEach(element => {
@@ -158,7 +158,7 @@ class List {
             listContainer.appendChild(li);
             li.addEventListener("click", () => {
                 new Tag(li.innerText, this.elemColor, this.DOMfilter.id);
-                console.log(li.innerText);
+                //console.log(Tag);
                 filtersAlgo(); /** Appel de la fonction de algo.js */
             })
         });
@@ -173,13 +173,14 @@ class Tag {
         this.addTag();
     }
     addTag() {
+        console.log("display tag");
         let tag = new CreateTag(this.filter, this.elemColor, this.filterType);
         tag = tag.createTag();
         const tagConteneur = document.querySelector(".tag");
         tagConteneur.appendChild(tag);
         tag.addEventListener("click", this.removeTag);
-        console.log(this.elemColor);
-        console.log(tag);
+        // console.log(this.elemColor);
+        // console.log(tag);
     }
     removeTag(e) {
         let element = e.target;
