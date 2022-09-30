@@ -5,9 +5,10 @@ class CreateTag {
         this.filterType = filterType;
     }
     createTag () {
+        console.log("tagi");
         const button = document.createElement("button");
         button.setAttribute("data-filtertype", `${this.filterType}`);
-        button.setAttribute("type","button");
+        //button.setAttribute("type","button");
         button.innerHTML = `
             ${this.filter}
             <img src="/public/assets/pictos/close.svg" alt="icon fermer">

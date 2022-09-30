@@ -158,7 +158,7 @@ class List {
             listContainer.appendChild(li);
             li.addEventListener("click", () => {
                 new Tag(li.innerText, this.elemColor, this.DOMfilter.id);
-                //console.log(Tag);
+                console.log(Tag);
                 filtersAlgo(); /** Appel de la fonction de algo.js */
             })
         });
@@ -173,10 +173,10 @@ class Tag {
         this.addTag();
     }
     addTag() {
-        console.log("display tag");
+        
         let tag = new CreateTag(this.filter, this.elemColor, this.filterType);
         tag = tag.createTag();
-        const tagConteneur = document.querySelector(".tag");
+        const tagConteneur = document.querySelector(".tag");console.log(tag);
         tagConteneur.appendChild(tag);
         tag.addEventListener("click", this.removeTag);
         // console.log(this.elemColor);
