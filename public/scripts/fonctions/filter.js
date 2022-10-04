@@ -158,7 +158,7 @@ class List {
             listContainer.appendChild(li);
             li.addEventListener("click", () => {
                 new Tag(li.innerText, this.elemColor, this.DOMfilter.id);
-                console.log(Tag);
+                //console.log(Tag);
                 filtersAlgo(); /** Appel de la fonction de algo.js */
             })
         });
