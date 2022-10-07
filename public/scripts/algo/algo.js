@@ -1,13 +1,14 @@
 let currentTabRecipes = filteredRecipes = searchedRecipes = recipes;
-const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
 
 function searchBarAlgo () {
+    const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
+
     const inputData = document.querySelector("#searchinput").value.toLowerCase();
     if (inputData.length > 2) {
         let result = [];
         for (const element of filteredRecipes) {
             const match = inputMatch (inputData, element);
-            if (match == true) {
+            if (match === true) {
                 result.push(element);
             }
         }
@@ -37,8 +38,6 @@ function searchBarAlgo () {
     else {
         searchedRecipes = recipes;
         currentTabRecipes = recipes;
-        console.log("step 1 :");
-        // const algo = require("./filterAlgo");
         filtersAlgo();
 
     }
@@ -48,7 +47,7 @@ function inputMatch (inputData, element) {
     const findInTitle = searchInTitle(element, inputData);
     const findInDescription = searchInDescription(element, inputData);
     const findInIngredients = searchInIngredients(element, inputData);
-    if (findInTitle || findInDescription || findInIngredients == true) {
+    if (findInTitle || findInDescription || findInIngredients === true) {
         return true;
     }
     else {
@@ -57,10 +56,9 @@ function inputMatch (inputData, element) {
 }
 
 
-function filtersAlgo() {
-    console.log("step 2 :");
+function filtersAlgo(filtersDatas) {
+    let currentTabRecipes = filteredRecipes = recipes;
     if (filtersDatas.length != 0) {
-        console.log('1');
         for (const filterData of filtersDatas) {
             filterMatch(filterData);
         }
@@ -70,7 +68,6 @@ function filtersAlgo() {
         currentTabRecipes = searchedRecipes;
     }
     else  {
-        console.log('2');
         filteredRecipes = recipes;
         searchBarAlgo();
     }
@@ -79,34 +76,28 @@ function filtersAlgo() {
 //looking for a match
 function filterMatch (tagData) {
     const filterType = tagData.getAttribute("data-filtertype");
+    let result = [];
     tagData = tagData.innerText.toLowerCase();
-    if (filterType === "ingredients") {
-        let result = [];
+    if (filterType === "ingredients") {        
         for (const element of currentTabRecipes) {
             const match = searchInIngredients (element, tagData);
-            if (match == true) {
-                result.push(element)
-            }
+            !!match && result.push(element)
         }
         currentTabRecipes = result;
     }
     else if (filterType === "appliances") {
-        let result = [];
+        
         for (const element of currentTabRecipes) {
             const match = searchInAppliances (element, tagData);
-            if (match == true) {
-                result.push(element)
-            }
+            !!match && result.push(element)
         }
         currentTabRecipes = result;
     }
     else if (filterType === "ustensils") {
-        let result = [];
+        
         for (const element of currentTabRecipes) {
             const match = searchInUstensils (element, tagData);
-            if (match == true) {
-                result.push(element)
-            }
+            !!match && result.push(element)
         }
         currentTabRecipes = result;
     }
@@ -114,7 +105,7 @@ function filterMatch (tagData) {
 
 
 function newFiltersList (recipes) {
-    const filtersList = new getFilters (recipes);
+    const filtersList = new getFilters(recipes);
     const ingredients = filtersList.getIngredients();
     const appliances = filtersList.getAppliances();
     const ustensils = filtersList.getUstensils();
@@ -158,4 +149,3 @@ function searchInUstensils (element, data) {
 function searchInDescription (element, data) {
     return element.description.toLowerCase().includes(data)
 }
-

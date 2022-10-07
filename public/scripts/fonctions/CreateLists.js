@@ -3,6 +3,7 @@ class getFilters {
       this.recipes = recipes;
   }
   getIngredients () {
+    console.log('testing');
       let ingredients = [];
       this.recipes.forEach(recipe => {
           recipe.ingredients.forEach(element => {

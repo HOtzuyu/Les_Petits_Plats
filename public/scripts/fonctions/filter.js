@@ -10,55 +10,6 @@ class Filter {
     createFiltersList(filters) {
         new List(this.DOMfilter, filters, this.elemColor);
     }
-    // filterEvent() {
-    //         const input = this.DOMfilter.querySelector("input");
-    //         const placeholder = input.placeholder;
-    //         const dropDowns = document.querySelectorAll(".dropdown");
-
-    //        // console.log(placeholder);
-
-    //         dropDowns.forEach(dropDown => {
-    //             dropDown.addEventListener('click', (e) => {
-    //                 const activeElements = Array.from(document.querySelectorAll('.dropdown.active'));
-    //                 e.stopPropagation();
-    //                 activeElements.forEach(activeElement => {
-    //                     activeElement.classList.remove('active');
-    //                     activeElement.classList.remove("flex-grow-1");
-    //                     activeElement.querySelector(".chevron").classList.remove("active");
-    //                     activeElement.querySelector("ul").classList.add("hide");
-    //                     activeElement.querySelector("ul").classList.remove("active");
-    //                     activeElement.querySelector("input").placeholder = placeholder;
-
-    //                     //console.log(placeholder);
-    //                 });
-    //                 dropDown.classList.add("flex-grow-1");
-    //                 dropDown.classList.add('active');
-    //                 dropDown.querySelector(".chevron").classList.add("active");
-    //                 dropDown.querySelector("ul").classList.remove("hide");
-    //                 dropDown.querySelector("ul").classList.add("active");
-    //                 if (dropDown.classList.contains("active")) {
-    //                     let result = "recherchez un " + e.target.value;
-
-    //                     //console.log(e);
-
-    //                     //console.log("if " + dropDown.querySelector('input'));
-    //                     dropDown.querySelector("input").placeholder = result;
-    //                     dropDown.addEventListener('click', () => {
-    //                         dropDown.classList.remove("flex-grow-1");
-    //                         dropDown.querySelector(".chevron").classList.remove("active");
-    //                         dropDown.querySelector("input").placeholder = placeholder;
-    //                         dropDown.querySelector("ul").classList.add("hide");
-    //                         dropDown.querySelector("ul").classList.remove("active");
-    //                     })
-    //                     //console.log("if " + placeholder);
-    //                 }                
-    //                 // console.log(placeholder);
-    //                 // console.log(this.DOMfilter);
-
-    //             });
-
-    //         });
-    //     }
     filterEvent() {
         let open = false;
         const input = this.DOMfilter.querySelector("input");
@@ -159,7 +110,9 @@ class List {
             li.addEventListener("click", () => {
                 new Tag(li.innerText, this.elemColor, this.DOMfilter.id);
                 //console.log(Tag);
-                filtersAlgo(); /** Appel de la fonction de algo.js */
+                const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
+
+                filtersAlgo(filtersDatas); /** Appel de la fonction de algo.js */
             })
         });
     }
