@@ -82,6 +82,7 @@ function filterMatch (tagData) {
         for (const element of currentTabRecipes) {
             const match = searchInIngredients (element, tagData);
             !!match && result.push(element)
+            //console.log(currentTabRecipes);
         }
         currentTabRecipes = result;
     }
