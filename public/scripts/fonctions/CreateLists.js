@@ -2,7 +2,7 @@ class getFilters {
     constructor(recipes) {
         this.recipes = recipes;
     }
-    getIngredients () {
+    getIngredients() {
         let ingredients = [];
         this.recipes.forEach(recipe => {
             recipe.ingredients.forEach(element => {
@@ -12,7 +12,7 @@ class getFilters {
         ingredients = this.removeDuplicates(ingredients);
         return ingredients
     }
-    getAppliances () {
+    getAppliances() {
         let appliances = [];
         this.recipes.forEach(recipe => {
             appliances.push(recipe.appliance.charAt(0).toUpperCase() + recipe.appliance.slice(1));
@@ -20,7 +20,7 @@ class getFilters {
         appliances = this.removeDuplicates(appliances);
         return appliances
     }
-    getUstensils () {
+    getUstensils() {
         let ustensils = [];
         this.recipes.forEach(recipe => {
             recipe.ustensils.forEach(element => {
@@ -30,10 +30,10 @@ class getFilters {
         ustensils = this.removeDuplicates(ustensils);
         return ustensils
     }
-    removeDuplicates (tags) {
-        const result = tags.filter((element , position) => {
-            return tags.indexOf(element) == position;
+    removeDuplicates(tags) {
+        const result = tags.filter((element, position) => {
+            return tags.indexOf(element) === position;
         })
         return result;
     }
-  }
+}

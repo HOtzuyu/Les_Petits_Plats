@@ -168,6 +168,19 @@ textarea:focus {
     border-radius: 0 0 5px 5px;
 }
 
+.boutton-x::before{
+    content: "";
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    margin-left: 5px;  
+    width: 1.5rem;
+    height: 1.5rem;
+    background-repeat: no-repeat;
+    background-image: url(/public/assets/pictos/close.svg);
+    background-position: bottom;
+}
+
 .tag{
     display: flex;
 }
@@ -244,20 +257,3 @@ textarea:focus {
     font-weight: 800;
 }
 
-
-
-.boutton-x::before{
-    content: "x";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bolder;
-    font-size: 1rem;
-    text-align: center;
-    margin-left: 5px;  
-    width: 1.5rem;
-    height: 1.5rem;
-    border: 2px solid var(--blanc);
-    border-radius: 50%;
-    
-}

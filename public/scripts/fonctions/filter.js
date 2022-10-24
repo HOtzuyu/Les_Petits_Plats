@@ -29,13 +29,10 @@ class Filter {
             });
             // Open sort list
             if (open == false) {
-                filter.classList.add("flex-grow-1");
-                filter.classList.add("active");
-
-                const placeholderMin = placeholder.toLowerCase();
+                const placeholderMin = placeholder.toLowerCase();                
+                filter.classList.add("flex-grow-1","active");
                 filter.querySelector("ul").classList.remove("hide");
                 filter.querySelector("ul").classList.add("active");
-
                 input.placeholder = `Rechercher un ${placeholderMin}`;
                 input.style.cursor = "text";
                 input.focus();
@@ -54,13 +51,10 @@ class Filter {
             }
         });
 
-        function remove() {
+        function remove() {            
+            filter.classList.remove("flex-grow-1","active");
             filter.querySelector("ul").classList.add("hide");
             filter.querySelector("ul").classList.remove("active");
-
-            filter.classList.remove("flex-grow-1");
-            filter.classList.remove("active");
-
             input.placeholder = placeholder;
             dropDownIcon.classList.remove("active");
             othersFilters.forEach(element => {
@@ -87,15 +81,13 @@ class List {
             const newTabFilters = []
             this.filters.forEach(element => {
                 const findIt = element.toLowerCase().includes(inputData);
-                if (findIt == true) {
+                if (!!findIt) {
                     newTabFilters.push(element);
                 }
             });
             this.displayFiltersList(newTabFilters);
-            console.log("1 :", newTabFilters);
         } else {
             this.displayFiltersList(this.filters);
-            console.log("2 :", this.filters);
         }
     }
     displayFiltersList(filters) {
@@ -108,7 +100,7 @@ class List {
             li.addEventListener("click", () => {
                 new Tag(li.innerText, this.elemColor, this.DOMfilter.id);
                 const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
-                filtersAlgo(filtersDatas); /** Appel de la fonction de algo.js */
+                filtersAlgo(filtersDatas);
             })
         });
     }
@@ -130,7 +122,6 @@ class Tag {
     }
     removeTag(e) {
         let element = e.target;
-        console.log(element);
         element.remove(element);        
         const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
         filtersAlgo(filtersDatas);

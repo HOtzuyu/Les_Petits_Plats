@@ -1,25 +1,21 @@
 let currentTabRecipes = filteredRecipes = searchedRecipes = recipes;
-                const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
 
-
-function searchBarAlgo () {
+function searchBarAlgo() {
     const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
-
     const inputData = document.querySelector("#searchinput").value.toLowerCase();
     if (inputData.length > 2) {
         let result = [];
         for (const element of filteredRecipes) {
-            const match = inputMatch (inputData, element);
+            const match = inputMatch(inputData, element);
             if (match === true) {
                 result.push(element);
             }
         }
         searchedRecipes = result;
         if (searchedRecipes.length != 0) {
-            new Recipes (searchedRecipes);
-            newFiltersList (searchedRecipes);
-        }
-        else {
+            new Recipes(searchedRecipes);
+            newFiltersList(searchedRecipes);
+        } else {
             const resultSection = document.querySelector(".result-section");
             document.querySelector("#wrapper-recettes").classList.add('hide');
             document.querySelector(".result-section ").classList.remove('hide');
@@ -27,133 +23,105 @@ function searchBarAlgo () {
             chercher « tarte aux pommes », « poisson », etc...</p>`;
         }
         currentTabRecipes = searchedRecipes;
-    }
-    else if (inputData.length < 3 && filtersDatas.length === 0) {
+    } else if (inputData.length < 3 && filtersDatas.length === 0) {
         currentTabRecipes = recipes;
         searchedRecipes = recipes;
-        new Recipes (recipes);
-        newFiltersList (recipes);
+        new Recipes(recipes);
+        newFiltersList(recipes);
         document.querySelector("#wrapper-recettes").classList.remove('hide');
         document.querySelector(".result-section ").classList.add('hide');
-        document.querySelector(".filtres-actifs").innerHTML="";
-    }
-    else {
+        document.querySelector(".filtres-actifs").innerHTML = "";
+    } else {
         searchedRecipes = recipes;
         currentTabRecipes = recipes;
         filtersAlgo(filtersDatas);
-
     }
 }
+
 //looking for a match
-function inputMatch (inputData, element) {
-    const findInTitle = searchInTitle(element, inputData);
-    const findInDescription = searchInDescription(element, inputData);
-    const findInIngredients = searchInIngredients(element, inputData);
-    if (findInTitle || findInDescription || findInIngredients === true) {
-        return true;
-    }
-    else {
-        return false;
-    }
+function inputMatch(inputData, element) {
+    const findInTitle = searchB(element, inputData, "name");
+    const findInDescription = searchB(element, inputData, "description");
+    const findInIngredients = searchA(element, inputData, "ingredients");
+    return !!findInTitle || findInDescription || findInIngredients ? true : false;
 }
 
 
 function filtersAlgo(filtersDatas) {
     if (filtersDatas.length != 0) {
         for (const filterData of filtersDatas) {
-            filterMatch(filterData);            
+            filterMatch(filterData);
         }
-        new Recipes (currentTabRecipes);
+        new Recipes(currentTabRecipes);
         newFiltersList(currentTabRecipes);
-        console.log("a nour :", currentTabRecipes);
         filteredRecipes = currentTabRecipes;
         currentTabRecipes = searchedRecipes;
-    }
-    else  {
+    } else {
         filteredRecipes = recipes;
         searchBarAlgo();
     }
 }
 
 //looking for a match
-function filterMatch (tagData) {
-    console.log("debut :",tagData);
+function filterMatch(tagData) {
     const filterType = tagData.getAttribute("data-filtertype");
-    let result = [];
+    //let result = [];
     tagData = tagData.innerText.toLowerCase();
+    if (filterType === "ingredients") {
+        eventLoop(tagData, "ingredients", "A");
+    } else if (filterType === "appliances") {
+        eventLoop(tagData, "appliance", "B");
 
-    if (filterType === "ingredients") {        
-        for (const element of currentTabRecipes) {
-            const match = searchInIngredients (element, tagData);
-            !!match && result.push(element)
-        }
-        currentTabRecipes = result;
+    } else if (filterType === "ustensils") {
+        eventLoop(tagData, "ustensils", "A");
     }
-    else if (filterType === "appliances") {
-        
-        for (const element of currentTabRecipes) {
-            const match = searchInAppliances (element, tagData);
-            !!match && result.push(element)
-        }
-        currentTabRecipes = result;
-    }
-    else if (filterType === "ustensils") {
-        
-        for (const element of currentTabRecipes) {
-            const match = searchInUstensils (element, tagData);
-            !!match && result.push(element)
-        }
-        currentTabRecipes = result;
-        
-    }
-    console.log("fin result :",result);
+    return currentTabRecipes;
+}
 
+function eventLoop(data, type, AB) {
+    let result = [];
+    for (element of currentTabRecipes) {
+        if (AB === "A") {
+            !!searchA(element, data, type) && result.push(element)
+
+        } else if (AB === "B") {
+            !!searchB(element, data, type) && result.push(element)
+        }
+    }
     return currentTabRecipes = result;
 }
 
+function searchA(element, data, type) {
+    const tab = element[type];
+    for (const elem of tab) {
+        if (type === "ingredients") {
+            if (elem.ingredient.toLowerCase().includes(data)) {
+                return true;
+            }
+        } else if (type === "ustensils") {
+            for (const elem of tab) {
+                if (elem.toLowerCase().includes(data)) {
+                    return true
+                }
+            }
+        }
+    }
+}
 
-function newFiltersList (recipes) {
+function searchB(element, data, type) {
+    return element[type].toLowerCase().includes(data);
+}
+
+
+function newFiltersList(recipes) {
     const filtersList = new getFilters(recipes);
     const ingredients = filtersList.getIngredients();
     const appliances = filtersList.getAppliances();
     const ustensils = filtersList.getUstensils();
-
     const ingredientsDOM = document.querySelector("#ingredients");
     const appliancesDOM = document.querySelector("#appliances");
     const ustensilsDOM = document.querySelector("#ustensils");
-
-    new List (ingredientsDOM, ingredients, "bg-ingredient");
-    new List (appliancesDOM, appliances, "bg-appliance");
-    new List (ustensilsDOM, ustensils, "bg-ustensil");
-}
-
-
-function searchInTitle (element, data) {
-    return element.name.toLowerCase().includes(data);
-}
-
-function searchInIngredients (element, data) {
-    const tabIngredients = element.ingredients;
-    for (const elem of tabIngredients) {
-        if (elem.ingredient.toLowerCase().includes(data)) {                       
-            return true;
-        }
-    }
-}
-
-function searchInAppliances (element, data) {
-    return element.appliance.toLowerCase().includes(data);
-}
-
-function searchInUstensils (element, data) {
-    const tabUstensils = element.ustensils;
-    for (const elem of tabUstensils) {
-        if (elem.toLowerCase().includes(data)) {
-            return true
-        }
-    }
-}
-
-function searchInDescription (element, data) {
-    return element.description.toLowerCase().includes(data)
+    new List(ingredientsDOM, ingredients, "bg-ingredient");
+    new List(appliancesDOM, appliances, "bg-appliance");
+    new List(ustensilsDOM, ustensils, "bg-ustensil");
 }

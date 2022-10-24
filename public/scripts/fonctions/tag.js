@@ -4,13 +4,22 @@ class CreateTag {
         this.elemColor = elemColor;
         this.filterType = filterType;
     }
-    createTag () {
+
+    createTag() {
         const button = document.createElement("button");
-        button.setAttribute("data-filtertype", `${this.filterType}`);
-        button.setAttribute("type","button");
-        button.setAttribute("aria-label","Close");
+        setAttributes(button, {
+            "data-filtertype": `${this.filterType}`,
+            "type": "button",
+            "aria-label": "Close"
+        });
         button.innerHTML = `${this.filter}`;
         button.classList.add(`${this.elemColor}`, "tag_space", "boutton-x");
         return button
+    }
+}
+
+function setAttributes(el, attrs) {
+    for (var key in attrs) {
+        el.setAttribute(key, attrs[key]);
     }
 }
