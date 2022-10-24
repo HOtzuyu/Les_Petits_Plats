@@ -54,8 +54,7 @@ function inputMatch (inputData, element) {
 }
 
 
-function filtersAlgo () {
-    
+function filtersAlgo (filtersDatas) {    
     if (filtersDatas.length != 0) {
         filtersDatas.forEach(filterData => {
             filterMatch(filterData);
