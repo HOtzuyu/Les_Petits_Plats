@@ -29,7 +29,6 @@ class Filter {
             });
             // Open sort list
             if (open == false) {
-                //console.log(filter);
                 filter.classList.add("flex-grow-1");
                 filter.classList.add("active");
 
@@ -93,14 +92,13 @@ class List {
                 }
             });
             this.displayFiltersList(newTabFilters);
+            console.log("1 :", newTabFilters);
         } else {
             this.displayFiltersList(this.filters);
+            console.log("2 :", this.filters);
         }
     }
     displayFiltersList(filters) {
-        //import {filtersAlgo} from "../algo/filterAlgo";
-        //const algo = require("../algo/filterAlgo");
-        //console.log(this.DOMfilter.querySelector("ul"));
         const listContainer = this.DOMfilter.querySelector("ul");
         listContainer.innerHTML = "";
         filters.forEach(element => {
@@ -109,9 +107,7 @@ class List {
             listContainer.appendChild(li);
             li.addEventListener("click", () => {
                 new Tag(li.innerText, this.elemColor, this.DOMfilter.id);
-                //console.log(Tag);
                 const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
-
                 filtersAlgo(filtersDatas); /** Appel de la fonction de algo.js */
             })
         });
@@ -125,18 +121,18 @@ class Tag {
         this.filterType = filterType;
         this.addTag();
     }
-    addTag() {
-        
+    addTag() {        
         let tag = new CreateTag(this.filter, this.elemColor, this.filterType);
         tag = tag.createTag();
-        const tagConteneur = document.querySelector(".tag");console.log(tag);
+        const tagConteneur = document.querySelector(".tag");
         tagConteneur.appendChild(tag);
         tag.addEventListener("click", this.removeTag);
-        // console.log(this.elemColor);
-        // console.log(tag);
     }
     removeTag(e) {
         let element = e.target;
-        element.parentNode.removeChild(element);
+        console.log(element);
+        element.remove(element);        
+        const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
+        filtersAlgo(filtersDatas);
     }
 }

@@ -1,4 +1,6 @@
 let currentTabRecipes = filteredRecipes = searchedRecipes = recipes;
+                const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
+
 
 function searchBarAlgo () {
     const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
@@ -38,7 +40,7 @@ function searchBarAlgo () {
     else {
         searchedRecipes = recipes;
         currentTabRecipes = recipes;
-        filtersAlgo();
+        filtersAlgo(filtersDatas);
 
     }
 }
@@ -57,13 +59,13 @@ function inputMatch (inputData, element) {
 
 
 function filtersAlgo(filtersDatas) {
-    let currentTabRecipes = filteredRecipes = recipes;
     if (filtersDatas.length != 0) {
         for (const filterData of filtersDatas) {
-            filterMatch(filterData);
+            filterMatch(filterData);            
         }
         new Recipes (currentTabRecipes);
         newFiltersList(currentTabRecipes);
+        console.log("a nour :", currentTabRecipes);
         filteredRecipes = currentTabRecipes;
         currentTabRecipes = searchedRecipes;
     }
@@ -75,14 +77,15 @@ function filtersAlgo(filtersDatas) {
 
 //looking for a match
 function filterMatch (tagData) {
+    console.log("debut :",tagData);
     const filterType = tagData.getAttribute("data-filtertype");
     let result = [];
     tagData = tagData.innerText.toLowerCase();
+
     if (filterType === "ingredients") {        
         for (const element of currentTabRecipes) {
             const match = searchInIngredients (element, tagData);
             !!match && result.push(element)
-            //console.log(currentTabRecipes);
         }
         currentTabRecipes = result;
     }
@@ -101,7 +104,11 @@ function filterMatch (tagData) {
             !!match && result.push(element)
         }
         currentTabRecipes = result;
+        
     }
+    console.log("fin result :",result);
+
+    return currentTabRecipes = result;
 }
 
 
@@ -128,8 +135,8 @@ function searchInTitle (element, data) {
 function searchInIngredients (element, data) {
     const tabIngredients = element.ingredients;
     for (const elem of tabIngredients) {
-        if (elem.ingredient.toLowerCase().includes(data)) {
-            return true
+        if (elem.ingredient.toLowerCase().includes(data)) {                       
+            return true;
         }
     }
 }

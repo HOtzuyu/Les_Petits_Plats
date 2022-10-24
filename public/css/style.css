@@ -168,7 +168,15 @@ textarea:focus {
     border-radius: 0 0 5px 5px;
 }
 
+.tag{
+    display: flex;
+}
+
 .tag>* {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
     padding: 10px 25px;
     color: white;
     border-radius : 5px;
@@ -234,4 +242,22 @@ textarea:focus {
     text-align: center;
     color: var(--rouge);
     font-weight: 800;
+}
+
+
+
+.boutton-x::before{
+    content: "x";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 1rem;
+    text-align: center;
+    margin-left: 5px;  
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid var(--blanc);
+    border-radius: 50%;
+    
 }
