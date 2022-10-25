@@ -42,7 +42,7 @@ class RecetteCard {
                     .join("")}</li>
                 </ul>
                 <div class="w-50 h-100 card-desc">
-                    <p class="">${this.description}</p>
+                    <p class="description">${this.description}</p>
                 </div>
 
             </div>
