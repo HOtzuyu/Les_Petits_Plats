@@ -1,3 +1,6 @@
+/**
+ * window filters
+ */
 class Filter {
     constructor(filters, DOMfilter, elemColor) {
         this.filters = filters;
@@ -71,6 +74,9 @@ class Filter {
     }
 }
 
+/**
+ * list of elements
+ */
 class List {
     constructor(DOMfilter, filters, elemColor) {
         this.DOMfilter = DOMfilter;
@@ -92,10 +98,8 @@ class List {
                 }
             });
             this.displayFiltersList(newTabFilters);
-            console.log("1 :", newTabFilters);
         } else {
             this.displayFiltersList(this.filters);
-            console.log("2 :", this.filters);
         }
     }
     displayFiltersList(filters) {
@@ -114,6 +118,9 @@ class List {
     }
 }
 
+/**
+ * toggle display tag 
+ */
 class Tag {
     constructor(filter, elemColor, filterType) {
         this.filter = filter;
@@ -130,7 +137,6 @@ class Tag {
     }
     removeTag(e) {
         let element = e.target;
-        console.log(element);
         element.remove(element);        
         const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
         filtersAlgo(filtersDatas);

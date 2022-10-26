@@ -1,3 +1,6 @@
+/**
+ * creat list filter
+ */
 class getFilters {
     constructor(recipes) {
         this.recipes = recipes;

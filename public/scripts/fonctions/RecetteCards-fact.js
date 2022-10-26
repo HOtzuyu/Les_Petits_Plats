@@ -1,3 +1,6 @@
+/**
+ * Creat recipe cards
+ */
 class RecetteCard {
     constructor(recipe) {
         this.name = recipe.name;
