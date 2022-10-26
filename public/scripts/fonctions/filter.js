@@ -1,3 +1,6 @@
+/**
+ * window filters
+ */
 class Filter {
     constructor(filters, DOMfilter, elemColor) {
         this.filters = filters;
@@ -11,10 +14,10 @@ class Filter {
         new List(this.DOMfilter, filters, this.elemColor);
     }
     filterEvent() {
-        let open = false;
         const input = this.DOMfilter.querySelector("input");
         const placeholder = input.placeholder;
         const filter = this.DOMfilter;
+        let open = false;
         let othersFilters = Array.from(document.querySelectorAll(".filters__element"));
         othersFilters = othersFilters.filter((elem) => {
             return elem !== filter
@@ -65,6 +68,9 @@ class Filter {
     }
 }
 
+/**
+ * list of elements
+ */
 class List {
     constructor(DOMfilter, filters, elemColor) {
         this.DOMfilter = DOMfilter;
@@ -106,6 +112,9 @@ class List {
     }
 }
 
+/**
+ * toggle display tag 
+ */
 class Tag {
     constructor(filter, elemColor, filterType) {
         this.filter = filter;

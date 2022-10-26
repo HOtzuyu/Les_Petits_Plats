@@ -1,5 +1,10 @@
 let currentTabRecipes = filteredRecipes = searchedRecipes = recipes;
 
+/**
+ * configuration of the principal search bar
+ * reset all recipe cards 
+ * call in filter.js
+ */
 function searchBarAlgo() {
     const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
     const inputData = document.querySelector("#searchinput").value.toLowerCase();
@@ -38,7 +43,14 @@ function searchBarAlgo() {
     }
 }
 
-//looking for a match
+/**
+ * 
+ * @param {input in search bar string} inputData 
+ * @param {type} element 
+ * @returns 
+ * 
+ * If the user typing match with the recipe.js elements
+ */
 function inputMatch(inputData, element) {
     const findInTitle = searchB(element, inputData, "name");
     const findInDescription = searchB(element, inputData, "description");
@@ -46,7 +58,12 @@ function inputMatch(inputData, element) {
     return !!findInTitle || findInDescription || findInIngredients ? true : false;
 }
 
-
+/**
+ * 
+ * @param {all tag filter} filtersDatas 
+ * 
+ * filter by selected tags | listen if tag add or remove
+ */
 function filtersAlgo(filtersDatas) {
     if (filtersDatas.length != 0) {
         for (const filterData of filtersDatas) {
@@ -62,10 +79,13 @@ function filtersAlgo(filtersDatas) {
     }
 }
 
-//looking for a match
+/**
+ * 
+ * @param {tag's type} tagData 
+ * @returns 
+ */
 function filterMatch(tagData) {
     const filterType = tagData.getAttribute("data-filtertype");
-    //let result = [];
     tagData = tagData.innerText.toLowerCase();
     if (filterType === "ingredients") {
         eventLoop(tagData, "ingredients", "A");
@@ -78,6 +98,13 @@ function filterMatch(tagData) {
     return currentTabRecipes;
 }
 
+/**
+ * 
+ * @param {tagData'type} data 
+ * @param {type} type 
+ * @param {test if a or b} AB 
+ * @returns 
+ */
 function eventLoop(data, type, AB) {
     let result = [];
     for (element of currentTabRecipes) {
@@ -91,6 +118,15 @@ function eventLoop(data, type, AB) {
     return currentTabRecipes = result;
 }
 
+
+/**
+ * if loopEvent it's A
+ * 
+ * @param {tagData} element 
+ * @param {type} data 
+ * @param {A or B} type 
+ * @returns 
+ */
 function searchA(element, data, type) {
     const tab = element[type];
     for (const elem of tab) {
@@ -108,11 +144,22 @@ function searchA(element, data, type) {
     }
 }
 
+/**
+ * if loopEvent it's B
+ * 
+ * @param {tagData} element 
+ * @param {type} data 
+ * @param {A or B} type  
+ * @returns 
+ */
 function searchB(element, data, type) {
     return element[type].toLowerCase().includes(data);
 }
 
-
+/**
+ * 
+ * @param {display or remove cards} recipes 
+ */
 function newFiltersList(recipes) {
     const filtersList = new getFilters(recipes);
     const ingredients = filtersList.getIngredients();

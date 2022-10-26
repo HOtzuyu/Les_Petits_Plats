@@ -1,3 +1,6 @@
+/**
+ * Add cards RecetteCards-fact.js
+ */
 class Recipes {
     constructor (recipes) {
         this.recipes = recipes;

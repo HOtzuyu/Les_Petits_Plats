@@ -1,3 +1,6 @@
+/**
+ * listen input search
+ */
 class Searchbar {
     constructor () {
         this.input = document.querySelector("#searchinput");

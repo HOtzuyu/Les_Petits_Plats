@@ -1,3 +1,6 @@
+/**
+ * creat tag
+ */
 class CreateTag {
     constructor(filter, elemColor, filterType) {
         this.filter = filter;
@@ -18,6 +21,11 @@ class CreateTag {
     }
 }
 
+/**
+ * Set tag attributes
+ * @param {button type} el 
+ * @param {attribute} attrs 
+ */
 function setAttributes(el, attrs) {
     for (var key in attrs) {
         el.setAttribute(key, attrs[key]);
