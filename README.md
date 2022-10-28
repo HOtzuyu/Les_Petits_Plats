@@ -22,6 +22,9 @@ Les fichiers fournis :
 ### Creations
 ***
 Mise en place des fichiers HTML, CSS et des JS manquant.
+master = base de code
+log1 = méthode filter
+log2 = boucle for
 #### Creation des cards
 ***
 La création des cards de recette est mis en place dans RecetteCards-fact.js. Créé par intégration depuis le Js dans le HTML. 
