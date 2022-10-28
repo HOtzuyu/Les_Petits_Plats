@@ -11,9 +11,7 @@ function searchBarAlgo() {
     if (inputData.length > 2) {
         searchedRecipes = filteredRecipes.filter(element => {
             const match = inputMatch(inputData, element);
-            if (match == true) {
-                return element;
-            }
+            return !!match && element;
         });
         if (searchedRecipes.length != 0) {
             new Recipes(searchedRecipes);
