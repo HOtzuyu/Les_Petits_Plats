@@ -1,5 +1,5 @@
 /**
- * lis
+ * listen principal searchbar
  */
 class Searchbar {
     constructor() {
