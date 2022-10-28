@@ -5,38 +5,51 @@ let currentTabRecipes = filteredRecipes = searchedRecipes = recipes;
  * reset all recipe cards 
  * call in filter.js
  */
-function searchBarAlgo() {
-    const inputData = document.querySelector("#searchinput").value.toLowerCase();
-    const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
-    if (inputData.length > 2) {
-        console.log(filteredRecipes);
-        searchedRecipes = filteredRecipes.filter(element => {
-            const match = inputMatch(inputData, element);
-            return !!match && element;
-        });
-        if (searchedRecipes.length != 0) {
-            new Recipes(searchedRecipes);
-            newFiltersList(searchedRecipes);
+ function searchBarAlgo() {
+    document.querySelector("#searchinput").addEventListener('input', function () {
+        const inputData = document.querySelector("#searchinput").value.toLowerCase();
+        const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
+        if (inputData.length > 2) {
+            searchedRecipes = filteredRecipes.filter(element => {
+                const match = inputMatch(inputData, element);
+                return !!match && element;
+            });
+            if (searchedRecipes.length != 0) {
+                new Recipes(searchedRecipes);
+                newFiltersList(searchedRecipes);
+                display("block");
+            } else {                
+                display("hide");
+            }
+            currentTabRecipes = searchedRecipes;
+        } else if (inputData.length < 5 && filtersDatas.length === 0) {
+            currentTabRecipes = recipes;
+            searchedRecipes = recipes;
+            new Recipes(recipes);
+            newFiltersList(recipes);
+            display("block");
+            document.querySelector(".filtres-actifs").innerHTML = "";
         } else {
-            const resultSection = document.querySelector(".result-section");
-            document.querySelector("#wrapper-recettes").classList.add('hide');
-            document.querySelector(".result-section ").classList.remove('hide');
-            resultSection.innerHTML = `<p>Aucune recette ne correspond à votre critère… vous pouvez
-            chercher « tarte aux pommes », « poisson », etc...</p>`;
+            searchedRecipes = recipes;
+            currentTabRecipes = recipes;
+            filtersAlgo();
         }
-        currentTabRecipes = searchedRecipes;
-    } else if (inputData.length < 3 && filtersDatas.length === 0) {
-        currentTabRecipes = recipes;
-        searchedRecipes = recipes;
-        new Recipes(recipes);
-        newFiltersList(recipes);
+    });
+}
+
+/**
+ * 
+ * @param {toggle block or hide} id 
+ */
+function display(id) {
+    if (id === "block") {
         document.querySelector("#wrapper-recettes").classList.remove('hide');
         document.querySelector(".result-section ").classList.add('hide');
-        document.querySelector(".filtres-actifs").innerHTML = "";
-    } else {
-        searchedRecipes = recipes;
-        currentTabRecipes = recipes;
-        filtersAlgo();
+    } else if (id === "hide") {
+        const resultSection = document.querySelector(".result-section");
+        document.querySelector("#wrapper-recettes").classList.add('hide');
+        document.querySelector(".result-section ").classList.remove('hide');
+        resultSection.innerHTML = `<p>Aucune recette ne correspond à votre critère… vous pouvez chercher<br>« tarte aux pommes », « poisson », etc...</p>`;
     }
 }
 

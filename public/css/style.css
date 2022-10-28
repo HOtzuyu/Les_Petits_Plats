@@ -179,7 +179,7 @@ textarea:focus {
     width: 1.5rem;
     height: 1.5rem;
     background-repeat: no-repeat;
-    background-image: url(/public/assets/pictos/close.svg);
+    background-image: url(../../public/assets/pictos/close.svg);
     background-position: bottom;
 }
 
