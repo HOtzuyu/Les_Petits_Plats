@@ -21,5 +21,8 @@ Les fichiers fournis :
 ### Creations
 ***
 Mise en place des fichiers HTML, CSS et des JS manquant.
+master = base de code
+log1 = méthode filter
+log2 = boucle for
 ***
 ## Conclusion
