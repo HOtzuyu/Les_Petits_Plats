@@ -1,7 +1,7 @@
 /**
  * creat tag
  */
- class CreateTag {
+class CreateTag {
     constructor(filter, elemColor, filterType) {
         this.filter = filter;
         this.elemColor = elemColor;

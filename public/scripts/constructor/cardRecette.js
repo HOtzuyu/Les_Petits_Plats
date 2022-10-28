@@ -2,11 +2,11 @@
  * Add cards RecetteCards-fact.js
  */
 class Recipes {
-    constructor (recipes) {
+    constructor(recipes) {
         this.recipes = recipes;
         this.addRecipes();
     }
-    addRecipes () {
+    addRecipes() {
         const resultSection = document.querySelector("#wrapper-recettes");
         resultSection.innerHTML = "";
         this.recipes.forEach(element => {

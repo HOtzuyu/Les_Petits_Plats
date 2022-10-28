@@ -93,7 +93,7 @@ function filterMatch(tagData) {
             break;
         case "appliances":
             currentTabRecipes = currentTabRecipes.filter(element => {
-                return  !!searchB(element, tagData, "appliance") && true;
+                return !!searchB(element, tagData, "appliance") && true;
             });
             break;
         case "ustensils":
@@ -131,7 +131,7 @@ function newFiltersList(recipes) {
  * @param {A or B} type 
  * @returns 
  */
- function searchA(element, data, type) {
+function searchA(element, data, type) {
     const tab = element[type];
     for (const elem of tab) {
         if (type === "ingredients") {
@@ -156,6 +156,6 @@ function newFiltersList(recipes) {
  * @param {A or B} type  
  * @returns 
  */
- function searchB(element, data, type) {
+function searchB(element, data, type) {
     return element[type].toLowerCase().includes(data);
 }
