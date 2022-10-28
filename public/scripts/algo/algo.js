@@ -9,6 +9,7 @@ function searchBarAlgo() {
     const inputData = document.querySelector("#searchinput").value.toLowerCase();
     const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
     if (inputData.length > 2) {
+        console.log(filteredRecipes);
         searchedRecipes = filteredRecipes.filter(element => {
             const match = inputMatch(inputData, element);
             return !!match && element;
