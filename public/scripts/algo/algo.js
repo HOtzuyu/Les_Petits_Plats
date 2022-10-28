@@ -20,12 +20,9 @@ function searchBarAlgo() {
         if (searchedRecipes.length != 0) {
             new Recipes(searchedRecipes);
             newFiltersList(searchedRecipes);
+            display("block");
         } else {
-            const resultSection = document.querySelector(".result-section");
-            document.querySelector("#wrapper-recettes").classList.add('hide');
-            document.querySelector(".result-section ").classList.remove('hide');
-            resultSection.innerHTML = `<p>Aucune recette ne correspond à votre critère… vous pouvez
-            chercher « tarte aux pommes », « poisson », etc...</p>`;
+            display("hide");
         }
         currentTabRecipes = searchedRecipes;
     } else if (inputData.length < 3 && filtersDatas.length === 0) {
@@ -33,13 +30,28 @@ function searchBarAlgo() {
         searchedRecipes = recipes;
         new Recipes(recipes);
         newFiltersList(recipes);
-        document.querySelector("#wrapper-recettes").classList.remove('hide');
-        document.querySelector(".result-section ").classList.add('hide');
+        display("block");
         document.querySelector(".filtres-actifs").innerHTML = "";
     } else {
         searchedRecipes = recipes;
         currentTabRecipes = recipes;
         filtersAlgo(filtersDatas);
+    }
+}
+
+/**
+ * 
+ * @param {toggle block or hide} id 
+ */
+ function display(id) {
+    if (id === "block") {
+        document.querySelector("#wrapper-recettes").classList.remove('hide');
+        document.querySelector(".result-section ").classList.add('hide');
+    } else if (id === "hide") {
+        const resultSection = document.querySelector(".result-section");
+        document.querySelector("#wrapper-recettes").classList.add('hide');
+        document.querySelector(".result-section ").classList.remove('hide');
+        resultSection.innerHTML = `<p>Aucune recette ne correspond à votre critère… vous pouvez chercher<br>« tarte aux pommes », « poisson », etc...</p>`;
     }
 }
 
