@@ -144,12 +144,14 @@ textarea:focus {
     position: absolute;
     width: 100%;
 }
-.list-group li{
+
+.list-group li {
     color: var(--blanc);
     font-weight: 400;
     font-size: 1.125em;
 }
-.list-group li:hover{
+
+.list-group li:hover {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.32);
     border-radius: 5px;
@@ -171,12 +173,12 @@ textarea:focus {
 .tag>* {
     padding: 10px 25px;
     color: white;
-    border-radius : 5px;
+    border-radius: 5px;
     border: none;
     margin-right: 10px;
 }
 
-.tag_space > img{
+.tag_space>img {
     margin-left: 5px;
 }
 
@@ -225,5 +227,5 @@ textarea:focus {
 .list-ingredients {
     overflow: auto;
     scrollbar-width: thin;
-    scrollbar-color: var(--bleue) var(--gris-clair);  
+    scrollbar-color: var(--bleue) var(--gris-clair);
 }

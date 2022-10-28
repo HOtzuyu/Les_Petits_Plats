@@ -14,7 +14,7 @@ class Filter {
         const placeholder = input.placeholder;
         const dropDowns = document.querySelectorAll(".dropdown");
 
-       // console.log(placeholder);
+        // console.log(placeholder);
 
         dropDowns.forEach(dropDown => {
             dropDown.addEventListener('click', (e) => {
@@ -27,7 +27,7 @@ class Filter {
                     activeElement.querySelector("ul").classList.add("hide");
                     activeElement.querySelector("ul").classList.remove("active");
                     activeElement.querySelector("input").placeholder = placeholder;
-                    
+
                     //console.log(placeholder);
                 });
                 dropDown.classList.add("flex-grow-1");
@@ -50,12 +50,12 @@ class Filter {
                         dropDown.querySelector("ul").classList.remove("active");
                     })
                     //console.log("if " + placeholder);
-                }                
+                }
                 // console.log(placeholder);
                 // console.log(this.DOMfilter);
-                
+
             });
-            
+
         });
     }
 

@@ -4,10 +4,10 @@ class CreateTag {
         this.elemColor = elemColor;
         this.filterType = filterType;
     }
-    createTag () {
+    createTag() {
         const button = document.createElement("button");
         button.setAttribute("data-filtertype", `${this.filterType}`);
-        button.setAttribute("type","button");
+        button.setAttribute("type", "button");
         button.innerHTML = `
             ${this.filter}
             <img src="/public/assets/pictos/close.svg" alt="icon fermer">
