@@ -2,7 +2,7 @@
  * listen input search
  */
 class Searchbar {
-    constructor () {
+    constructor() {
         this.input = document.querySelector("#searchinput");
         this.listenInput()
     }

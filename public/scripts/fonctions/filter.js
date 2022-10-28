@@ -22,7 +22,7 @@ class Filter {
         othersFilters = othersFilters.filter((elem) => {
             return elem !== filter
         });
-        
+
         const dropDownIcon = this.DOMfilter.querySelector(".chevron");
 
         this.DOMfilter.addEventListener("click", (e) => {
@@ -32,8 +32,8 @@ class Filter {
             });
             // Open sort list
             if (open == false) {
-                const placeholderMin = placeholder.toLowerCase();                
-                filter.classList.add("flex-grow-1","active");
+                const placeholderMin = placeholder.toLowerCase();
+                filter.classList.add("flex-grow-1", "active");
                 filter.querySelector("ul").classList.remove("hide");
                 filter.querySelector("ul").classList.add("active");
                 input.placeholder = `Rechercher un ${placeholderMin}`;
@@ -54,8 +54,8 @@ class Filter {
             }
         });
 
-        function remove() {            
-            filter.classList.remove("flex-grow-1","active");
+        function remove() {
+            filter.classList.remove("flex-grow-1", "active");
             filter.querySelector("ul").classList.add("hide");
             filter.querySelector("ul").classList.remove("active");
             input.placeholder = placeholder;
@@ -122,7 +122,7 @@ class Tag {
         this.filterType = filterType;
         this.addTag();
     }
-    addTag() {        
+    addTag() {
         let tag = new CreateTag(this.filter, this.elemColor, this.filterType);
         tag = tag.createTag();
         const tagConteneur = document.querySelector(".tag");
@@ -131,7 +131,7 @@ class Tag {
     }
     removeTag(e) {
         let element = e.target;
-        element.remove(element);        
+        element.remove(element);
         const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
         filtersAlgo(filtersDatas);
     }
