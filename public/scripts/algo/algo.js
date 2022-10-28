@@ -5,37 +5,36 @@ let currentTabRecipes = filteredRecipes = searchedRecipes = recipes;
  * reset all recipe cards 
  * call in filter.js
  */
- function searchBarAlgo() {
-    document.querySelector("#searchinput").addEventListener('input', function () {
-        const inputData = document.querySelector("#searchinput").value.toLowerCase();
-        const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
-        if (inputData.length > 2) {
-            searchedRecipes = filteredRecipes.filter(element => {
-                const match = inputMatch(inputData, element);
-                return !!match && element;
-            });
-            if (searchedRecipes.length != 0) {
-                new Recipes(searchedRecipes);
-                newFiltersList(searchedRecipes);
-                display("block");
-            } else {                
-                display("hide");
-            }
-            currentTabRecipes = searchedRecipes;
-        } else if (inputData.length < 5 && filtersDatas.length === 0) {
-            currentTabRecipes = recipes;
-            searchedRecipes = recipes;
-            new Recipes(recipes);
-            newFiltersList(recipes);
+function searchBarAlgo() {
+    const inputData = document.querySelector("#searchinput").value.toLowerCase();
+    const filtersDatas = Array.from(document.querySelectorAll(".tag button"));
+    if (inputData.length > 2) {
+        searchedRecipes = filteredRecipes.filter(element => {
+            const match = inputMatch(inputData, element);
+            return !!match && element;
+        });
+        if (searchedRecipes.length != 0) {
+            new Recipes(searchedRecipes);
+            newFiltersList(searchedRecipes);
             display("block");
-            document.querySelector(".filtres-actifs").innerHTML = "";
         } else {
-            searchedRecipes = recipes;
-            currentTabRecipes = recipes;
-            filtersAlgo();
+            display("hide");
         }
-    });
-}
+        currentTabRecipes = searchedRecipes;
+    } else if (inputData.length < 5 && filtersDatas.length === 0) {
+        currentTabRecipes = recipes;
+        searchedRecipes = recipes;
+        new Recipes(recipes);
+        newFiltersList(recipes);
+        display("block");
+        document.querySelector(".filtres-actifs").innerHTML = "";
+    } else {
+        searchedRecipes = recipes;
+        currentTabRecipes = recipes;
+        filtersAlgo();
+    }
+};
+
 
 /**
  * 
