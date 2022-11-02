@@ -1,7 +1,7 @@
 /**
  * listen principal searchbar
  */
-class Searchbar {
+class SearchBar {
     constructor() {
         this.input = document.querySelector("#searchinput");
         this.listenInput()

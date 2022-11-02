@@ -120,7 +120,7 @@ function filterMatch(tagData) {
  * @param {display or remove cards} recipes 
  */
 function newFiltersList(recipes) {
-    const filtersList = new getFilters(recipes);
+    const filtersList = new GetFilters(recipes);
     const ingredients = filtersList.getIngredients();
     const appliances = filtersList.getAppliances();
     const ustensils = filtersList.getUstensils();
@@ -129,9 +129,9 @@ function newFiltersList(recipes) {
     const appliancesDOM = document.querySelector("#appliances");
     const ustensilsDOM = document.querySelector("#ustensils");
 
-    new List(ingredientsDOM, ingredients, "bg-ingredient");
-    new List(appliancesDOM, appliances, "bg-appliance");
-    new List(ustensilsDOM, ustensils, "bg-ustensil");
+    new TagList(ingredientsDOM, ingredients, "bg-ingredient");
+    new TagList(appliancesDOM, appliances, "bg-appliance");
+    new TagList(ustensilsDOM, ustensils, "bg-ustensil");
 }
 
 /**

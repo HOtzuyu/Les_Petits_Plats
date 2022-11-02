@@ -10,22 +10,20 @@ class App {
     }
 
     launchSearchBar() {
-        new Searchbar();
+        new SearchBar();
     }
 
     launchFilters() {
-        const filtersList = new getFilters(this.recipes);
+        const filtersList = new GetFilters(this.recipes);
         const ingredients = filtersList.getIngredients();
         const appliances = filtersList.getAppliances();
         const ustensils = filtersList.getUstensils();
-        new Filter(ingredients, document.querySelector("#ingredients"), "bg-ingredient");
-        new Filter(appliances, document.querySelector("#appliances"), "bg-appliance");
-        new Filter(ustensils, document.querySelector("#ustensils"), "bg-ustensil");
+        new Trieur(ingredients, document.querySelector("#ingredients"), "bg-ingredient");
+        new Trieur(appliances, document.querySelector("#appliances"), "bg-appliance");
+        new Trieur(ustensils, document.querySelector("#ustensils"), "bg-ustensil");
     }
 
     launchRecipes() {
         new Recipes(this.recipes);
     }
 }
-
-App.init();

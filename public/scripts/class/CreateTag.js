@@ -13,7 +13,7 @@ class CreateTag {
         setAttributes(button, {
             "data-filtertype": `${this.filterType}`,
             "type": "button",
-            "aria-label": "Close"
+            "aria-label": `${this.filter}`
         });
         button.innerHTML = `${this.filter}`;
         button.classList.add(`${this.elemColor}`, "tag_space", "boutton-x");

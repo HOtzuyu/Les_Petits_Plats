@@ -27,11 +27,11 @@ class RecetteCard {
         );
         card.innerHTML = `
             <img src="public/assets/image/${photo}.jpg" alt="${this.name}" class="card-img-top mb-2">
-            <div class="d-flex justify-content-between align-items-center gap-1 w-100 px-3">
+            <div class="d-flex justify-content-between align-items-center gap-1 w-100 px-4">
                 <h2>${this.name}</h2>
                 <p class="timer"><img src="public/assets/pictos/timer.png" alt=""> ${this.time} min</p>
             </div>
-            <div class="d-flex gap-1  px-3 card-detail">
+            <div class="d-flex gap-1  px-4 card-detail">
                 <ul class="w-50 list-ingredients">${this.ingredients
                     .map(
                       (element) =>
@@ -44,7 +44,7 @@ class RecetteCard {
                     )
                     .join("")}</li>
                 </ul>
-                <div class="w-50 h-100 card-desc">
+                <div class="w-50 card-desc ">
                     <p class="">${this.description}</p>
                 </div>
 
