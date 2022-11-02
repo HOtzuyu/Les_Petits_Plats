@@ -39,7 +39,8 @@
         <form class="formulaire" role="search">
             <div class="search-bar d-flex mb-4 w-100 position-relative mt-5">
                 <input id="searchinput" class="w-100" type="search"
-                    placeholder="Rechercher un ingrédient, un appareil, un ustensil ou une recette" aria-label="Search">
+                    placeholder="Rechercher un ingrédient, un appareil, un ustensil ou une recette" aria-label="Search"
+                    autocomplete="off">
                 <button type="submit" class="position-absolute"><img src="public/assets/pictos/search.png"
                         alt="picto loupe pour recehrche" aria-hidden="true"></button>
             </div>
@@ -54,7 +55,7 @@
                 <div class=" filters__element dropdown me-4 bg-ingredient shadow-sm" id="ingredients">
                     <div class="search-down d-flex justify-content-center align-items-center px-2 py-3">
                         <input class=" form-control" type="text" placeholder="Ingrédients" id="ingredients-filter"
-                            data-target="ingredient-filter">
+                            data-target="ingredient-filter" autocomplete="off">
                         <div class="ingredientChevron chevron" style="transform: none;">
                             <img class="dropdownIcon" src="public/assets/pictos/chevron.svg" alt="">
                         </div>
@@ -71,7 +72,7 @@
                 <div class=" filters__element dropdown me-4 bg-appliance shadow-sm" id="appliances">
                     <div class="search-down d-flex justify-content-center align-items-center px-2 py-3">
                         <input class=" form-control" type="text" placeholder="Appareils" id="appliances-filter"
-                            data-target="appliances-filter">
+                            data-target="appliances-filter" autocomplete="off">
                         <div class="appliancesChevron chevron" style="transform: none;">
                             <img class="dropdownIcon" src="public/assets/pictos/chevron.svg" alt="">
                         </div>
@@ -88,7 +89,7 @@
                 <div class=" filters__element dropdown me-4 bg-ustensil shadow-sm " id="ustensils">
                     <div class="search-down d-flex justify-content-center align-items-center px-2 py-3">
                         <input class=" form-control" type="text" placeholder="Ustensils" id="ustensils-filter"
-                            data-target="ingredient-filter">
+                            data-target="ingredient-filter" autocomplete="off">
                         <div class="ustensilChevron chevron" style="transform: none;">
                             <img class="dropdownIcon" src="public/assets/pictos/chevron.svg" alt="">
                         </div>
@@ -116,8 +117,7 @@
 
         <p>
             <a href="http://jigsaw.w3.org/css-validator/check/referer">
-                <img style="border:0;width:88px;height:31px"
-                    src="http://jigsaw.w3.org/css-validator/images/vcss"
+                <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss"
                     alt="CSS Valide !">
             </a>
         </p>
