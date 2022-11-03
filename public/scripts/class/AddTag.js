@@ -12,18 +12,15 @@ class AddTag {
         let tag = new CreateTag(this.filter, this.elemColor, this.filterType);
         tag = tag.createTag();
         const tagConteneur = document.querySelector(".tag");
-        const selectedValue = this.filter;
+        // const selectedValue = this.filter;
 
         const nodeTag = document.querySelectorAll(".tag button");
-        let tagArr = [...nodeTag]; /** convert node list to array */
+       // let tagArr = [...nodeTag]; /** convert node list to array */
 
-        let tagArray = this.nodeArrayToSplitArray(tagArr);
+        // let tagArray = this.nodeArrayToSplitArray(tagArr);
 
         tagConteneur.appendChild(tag);
-
-
-        console.log(tagArray);
-
+        console.log(tag.getAttribute("aria-label"));
         // if (tagArr.length === 0) {
 
         // } else if (newTagArr.length > 0) {
@@ -45,14 +42,14 @@ class AddTag {
         filtersAlgo(filtersDatas);
     }
 
-    nodeArrayToSplitArray(nodeTag) {
-        console.log(nodeTag.allTextContents());
-        let newArrayTag = nodeTag;
-        let newArray = [];
-        for (let i = 0; i < newArray.length; i++) {
-            newArray.push(newArrayTag.innerHtml)
-        };
-        return newArray;
-    }
+    // nodeArrayToSplitArray(nodeTag) {
+    //     console.log(nodeTag[0][18]);
+    //     let newArrayTag = nodeTag;
+    //     let newArray = [];
+    //     for (let i = 0; i < newArray.length; i++) {
+    //         newArray.push(newArrayTag.innerHtml)
+    //     };
+    //     return newArray;
+    // }
 
 }
