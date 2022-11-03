@@ -132,6 +132,8 @@ function newFiltersList(recipes) {
     new TagList(ingredientsDOM, ingredients, "bg-ingredient");
     new TagList(appliancesDOM, appliances, "bg-appliance");
     new TagList(ustensilsDOM, ustensils, "bg-ustensil");
+
+
 }
 
 /**
