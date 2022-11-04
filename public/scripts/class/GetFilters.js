@@ -1,7 +1,7 @@
 /**
  * creat list filter
  */
-class getFilters {
+class GetFilters {
     constructor(recipes) {
         this.recipes = recipes;
     }
@@ -35,7 +35,7 @@ class getFilters {
     }
     removeDuplicates(tags) {
         const result = tags.filter((element, position) => {
-            return tags.indexOf(element) === position;
+            return tags.indexOf(element) == position;
         })
         return result;
     }

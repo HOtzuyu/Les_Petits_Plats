@@ -21,7 +21,7 @@ body {
     font-weight: 400;
     font-size: 16px;
     margin: 0;
-    padding: 0;
+    padding: 0 100px;
 }
 
 /* ************header************ */
@@ -143,12 +143,14 @@ textarea:focus {
     position: absolute;
     width: 100%;
 }
-.list-group li{
+
+.list-group li {
     color: var(--blanc);
     font-weight: 400;
     font-size: 1.125em;
 }
-.list-group li:hover{
+
+.list-group li:hover {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.32);
     border-radius: 5px;
@@ -167,12 +169,12 @@ textarea:focus {
     border-radius: 0 0 5px 5px;
 }
 
-.boutton-x::before{
+.boutton-x::before {
     content: "";
     display: flex;
     justify-content: center;
-    align-items: center;    
-    margin-left: 5px;  
+    align-items: center;
+    margin-left: 5px;
     width: 1.5rem;
     height: 1.5rem;
     background-repeat: no-repeat;
@@ -180,7 +182,7 @@ textarea:focus {
     background-position: bottom;
 }
 
-.tag{
+.tag {
     display: flex;
 }
 
@@ -191,19 +193,19 @@ textarea:focus {
     justify-content: center;
     padding: 10px 25px;
     color: white;
-    border-radius : 5px;
+    border-radius: 5px;
     border: none;
     margin-right: 10px;
 }
 
-.tag_space > img{
+.tag_space>img {
     margin-left: 5px;
 }
 
 /* *********CARDS*********** */
 .card {
     background-color: var(--gris-clair);
-    width: 380px;
+    width: 32%;
     height: 364px;
 }
 
@@ -213,7 +215,7 @@ textarea:focus {
 }
 
 .card-detail {
-    height: 108px;
+    height: 120px;
 }
 
 .card h2 {
@@ -241,36 +243,45 @@ textarea:focus {
     font-weight: 700;
 }
 
-.description{
-    padding-left:5px;
+.description {
+    padding-left: 5px;
 }
 
 .card-desc,
 .list-ingredients {
-    overflow: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;    
     scrollbar-width: thin;
-    scrollbar-color: var(--bleue) var(--gris-clair);  
+    scrollbar-color: var(--bleue) var(--gris-clair);
 
 }
 
-.card-desc::-webkit-scrollbar, .list-ingredients::-webkit-scrollbar {
+.card-desc::-webkit-scrollbar,
+.list-ingredients::-webkit-scrollbar {
     width: 5px;
-  }
-   
-  .card-desc::-webkit-scrollbar-track, .list-ingredients::-webkit-scrollbar-track {
-    background:var(--gris-clair) ;
-  }
-   
-  .card-desc::-webkit-scrollbar-thumb,.list-ingredients::-webkit-scrollbar-thumb {
-    background: var(--bleue); 
-  }
+}
+
+.card-desc::-webkit-scrollbar-track,
+.list-ingredients::-webkit-scrollbar-track {
+    background: var(--gris-clair);
+}
+
+.card-desc::-webkit-scrollbar-thumb,
+.list-ingredients::-webkit-scrollbar-thumb {
+    background: var(--bleue);
+}
 
 
 /* Error message */
-.result-section p{
+.result-section p {
     font-size: 2em;
     text-align: center;
     color: var(--rouge);
     font-weight: 800;
 }
 
+
+
+.hidden{
+    display:none
+}
