@@ -2,15 +2,15 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="Les Petits Plats" />
-    <meta name="description" content="Site de recettes" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Les Petits Plats">
+    <meta name="description" content="Site de recettes">
     <title>Les Petits Plats</title>
 
     <!-- **************FAVICON************** -->
-    <link rel="icon" type="image/png" href="public/assets/favicon/logo.png" />
+    <link rel="icon" type="image/x-icon" href="public/assets/favicon/logo.png">
 
     <!-- **********IMPORTS****************** -->
     <!-- google font Lato -->
@@ -25,10 +25,10 @@
     </script>
 
     <!-- ***************CSS***************** -->
-    <link href="public/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="public/css/style.css" rel="stylesheet" type="text/css">
 </head>
 
-<body class="container">
+<body>
 
     <header class="d-flex justify-content-center pt-3">
         <img src="public/assets/logo/logo.svg" alt="Logo de l'entreprise Les Petits Plats" class="logo">
@@ -39,30 +39,29 @@
         <form class="formulaire" role="search">
             <div class="search-bar d-flex mb-4 w-100 position-relative mt-5">
                 <input id="searchinput" class="w-100" type="search"
-                    placeholder="Rechercher un ingrédient, un appareil, un ustensil ou une recette" aria-label="Search">
+                    placeholder="Rechercher un ingrédient, un appareil, un ustensil ou une recette" aria-label="Search"
+                    autocomplete="off">
                 <button type="submit" class="position-absolute"><img src="public/assets/pictos/search.png"
                         alt="picto loupe pour recehrche" aria-hidden="true"></button>
             </div>
 
             <!-- affichage des filtres actifs -->
-            <div class="filtres-actifs mb-3 tag">
-            </div>
+            <div class="filtres-actifs mb-3 tag"></div>
 
             <!-- 3 dropdown de filtres -->
             <div class="d-flex zone-filtres mb-5 filters">
 
                 <!-- Ingredients -->
-                <div class="dropdown me-4 bg-ingredient shadow-sm" id="ingredients">
+                <div class=" filters__element dropdown me-4 bg-ingredient shadow-sm" id="ingredients">
                     <div class="search-down d-flex justify-content-center align-items-center px-2 py-3">
                         <input class=" form-control" type="text" placeholder="Ingrédients" id="ingredients-filter"
-                            data-target="ingredient-filter">
+                            data-target="ingredient-filter" autocomplete="off">
                         <div class="ingredientChevron chevron" style="transform: none;">
                             <img class="dropdownIcon" src="public/assets/pictos/chevron.svg" alt="">
                         </div>
                     </div>
                     <ul id="ingredientsList" data-target="ingredients"
-                        class="list-group bg-ingredient row flex-wrap m-0 p-1 pt-0 list-unstyled fs-6 hide"
-                        aria-labelledby="dropdownMenuLink">
+                        class="list-group bg-ingredient row flex-wrap m-0 p-1 pt-0 list-unstyled fs-6 hide">
                         <!-- liste d'ingrédients -->
                     </ul>
                 </div>
@@ -70,17 +69,16 @@
 
 
                 <!-- Appareils / appliances -->
-                <div class="dropdown me-4 bg-appliance shadow-sm" id="appliances">
+                <div class=" filters__element dropdown me-4 bg-appliance shadow-sm" id="appliances">
                     <div class="search-down d-flex justify-content-center align-items-center px-2 py-3">
                         <input class=" form-control" type="text" placeholder="Appareils" id="appliances-filter"
-                            data-target="appliancest-filter">
+                            data-target="appliances-filter" autocomplete="off">
                         <div class="appliancesChevron chevron" style="transform: none;">
                             <img class="dropdownIcon" src="public/assets/pictos/chevron.svg" alt="">
                         </div>
                     </div>
                     <ul id="appliancesList" data-target="appliances"
-                        class="list-group bg-appliance row flex-wrap m-0 p-1 pt-0 list-unstyled fs-6  hide"
-                        aria-labelledby="dropdownMenuLink">
+                        class="list-group bg-appliance row flex-wrap m-0 p-1 pt-0 list-unstyled fs-6  hide">
                         <!-- liste d'appareils -->
                     </ul>
                 </div>
@@ -88,17 +86,16 @@
 
 
                 <!-- Ustensils -->
-                <div class="dropdown me-4 bg-ustensil shadow-sm " id="ustensils">
+                <div class=" filters__element dropdown me-4 bg-ustensil shadow-sm " id="ustensils">
                     <div class="search-down d-flex justify-content-center align-items-center px-2 py-3">
                         <input class=" form-control" type="text" placeholder="Ustensils" id="ustensils-filter"
-                            data-target="ingredient-filter">
+                            data-target="ingredient-filter" autocomplete="off">
                         <div class="ustensilChevron chevron" style="transform: none;">
                             <img class="dropdownIcon" src="public/assets/pictos/chevron.svg" alt="">
                         </div>
                     </div>
                     <ul id="ustensilsList" data-target="ustensils"
-                        class="list-group bg-ustensil row flex-wrap m-0 p-1 pt-0 list-unstyled fs-6 hide"
-                        aria-labelledby="dropdownMenuLink">
+                        class="list-group bg-ustensil row flex-wrap m-0 p-1 pt-0 list-unstyled fs-6 hide">
                         <!-- liste d'ustensils -->
                     </ul>
                 </div>
@@ -113,23 +110,34 @@
         <div class="mb-5  d-flex flex-wrap justify-content-between align-items-center flex-wrap" id="wrapper-recettes">
             <!-- Cards recettes -->
         </div>
+        <div class="result-section d-flex justify-content-center"></div>
     </main>
 
     <footer>
+
+        <p>
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss"
+                    alt="CSS Valide !">
+            </a>
+        </p>
+
         <!-- data recettes -->
         <script src="public/data/recipes.js"></script>
-        <!-- Algo -->
-        <script src="public/scripts/algo/algo.js"></script>
-        <!-- filtres -->
-        <script src="public/scripts/fonctions/CreateLists.js"></script>
-        <!-- fact fiches recettes -->
-        <script src="public/scripts/fonctions/tag.js"></script>
-        <script src="public/scripts/fonctions/filter.js"></script>
-        <script src="public/scripts/fonctions/RecetteCards-fact.js"></script>
-        <!-- constructeur fiches recettes -->
-        <script src="public/scripts/constructor/cardRecette.js"></script>
-        <!-- intégration éléments -->
-        <script src="public/scripts/script.js"></script>
+
+        <script src="public/scripts/class/GetFilters.js"></script>
+        <script src="public/scripts/class/Recipes.js"></script>
+        <script src="public/scripts/class/CreateTag.js"></script>
+        <script src="public/scripts/class/TagList.js"></script>
+        <script src="public/scripts/class/AddTag.js"></script>        
+        <script src="public/scripts/class/Trieur.js"></script>
+        <script src="public/scripts/class/RecetteCards.js"></script>
+
+        <!-- traitement éléments -->
+        <script src="public/scripts/class/App.js"></script>
+
+        <!-- initialisation -->
+        <script src="public/scripts/init.js"></script>
     </footer>
 
 </body>
