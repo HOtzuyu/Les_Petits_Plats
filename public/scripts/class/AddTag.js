@@ -34,6 +34,11 @@ class AddTag {
         filtersAlgo(filtersDatas);
     }
 
+    /**
+     * 
+     * @param {node list} nodeTag 
+     * @returns an array with the aria-label string
+     */
     nodeArrayToSplitArray(nodeTag) {
         let newArray = [];
 
